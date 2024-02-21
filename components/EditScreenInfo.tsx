@@ -8,11 +8,11 @@ import { Text, View } from './Themed';
 
 import Colors from '@/constants/Colors';
 
-const imageUrl = "";
-
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
     <View>
+    <Image source={{uri: 'https://raw.githubusercontent.com/mpcgt/saguenay/main/assets/images/Saguenayw.png'}}
+       style={{width: 350, height: 350}} />
       <View style={styles.getStartedContainer}>
         <Text
           style={styles.getStartedText}
@@ -25,7 +25,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Cette application est mise à jour automatiquement chaque fois qu'une modification est apportée.
+          Cette application est en cours de construction, veuillez patienter...
         </Text>
       </View>
 
