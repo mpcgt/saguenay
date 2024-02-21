@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 
 import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
 import Colors from '@/constants/Colors';
+
+const imageUrl = "";
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
@@ -15,14 +18,14 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Welcome to Saguenay 😉
+          Bienvenue dans Saguenay ! 😉
         </Text>
 
         <Text
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          This application updates automatically each time a change is made.
+          Cette application est mise à jour automatiquement chaque fois qu'une modification est apportée.
         </Text>
       </View>
 
@@ -31,7 +34,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.helpLink}
           href="https://www.github.com/mpcgt/saguenay">
           <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-          The source code for this application
+          Le code source de cette application
           </Text>
         </ExternalLink>
       </View>
