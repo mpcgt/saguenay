@@ -12,7 +12,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
   return (
     <View>
     <Image source={{uri: 'https://raw.githubusercontent.com/mpcgt/saguenay/main/assets/images/saguenay-transparent.png'}}
-       style={{width: 350, height: 350}} />
+       style={{width: 400, height: 400}} />
       <View style={styles.getStartedContainer}>
         <Text
           style={styles.getStartedText}
