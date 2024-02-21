@@ -11,7 +11,7 @@ import Colors from '@/constants/Colors';
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
     <View>
-    <Image source={{uri: 'https://raw.githubusercontent.com/mpcgt/saguenay/main/assets/images/Saguenayw.png'}}
+    <Image source={{uri: 'https://raw.githubusercontent.com/mpcgt/saguenay/main/assets/images/saguenayw.png'}}
        style={{width: 350, height: 350}} />
       <View style={styles.getStartedContainer}>
         <Text
