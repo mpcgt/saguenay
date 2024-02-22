@@ -47,7 +47,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
+     <Tabs.Screen
         name="two"
         options={{
           title: 'Soon',
