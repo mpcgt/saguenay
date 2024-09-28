@@ -1,0 +1,6 @@
+.image-container {
+    display: block; /* Makes the image a block element */
+    margin: 0 auto; /* Centers horizontally */
+    max-width: 100%;
+    height: auto;
+  }
