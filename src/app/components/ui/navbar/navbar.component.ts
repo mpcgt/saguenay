@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'navbar',
+  selector: 'sidebar',
   standalone: true,
   imports: [],
   templateUrl: './navbar.component.html',
