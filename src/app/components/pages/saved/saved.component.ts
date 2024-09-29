@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'app-saved',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  templateUrl: './saved.component.html',
+  styleUrl: './saved.component.css'
 })
-export class NavbarComponent {
+export class SavedComponent {
 
 }

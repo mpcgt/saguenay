@@ -1,9 +1,12 @@
 <style>
-
 </style>
 
 <main class="main">
   <navigationbar></navigationbar>
-  <sidebar></sidebar>
+  <div class="content">
+    <sidebar></sidebar>
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </main>
-<router-outlet />

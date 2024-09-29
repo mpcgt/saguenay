@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'app-discovery',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  templateUrl: './discovery.component.html',
+  styleUrl: './discovery.component.css'
 })
-export class NavbarComponent {
+export class DiscoveryComponent {
 
 }
