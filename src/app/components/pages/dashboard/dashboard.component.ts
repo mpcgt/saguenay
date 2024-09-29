@@ -3,12 +3,12 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from "../../ui/navbar/navbar.component";
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-dashboard',
   standalone: true,
   imports: [RouterModule, NavbarComponent],
-  templateUrl: './settings.component.html',
-  styleUrl: './settings.component.css'
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.css'
 })
-export class SettingsComponent {
+export class DashboardComponent {
 
 }
