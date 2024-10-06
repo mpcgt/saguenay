@@ -1,7 +1,7 @@
 <div align="center">
-<img src="https://github.com/mpcgt/saguenay/blob/main/src/app/assets/images/logo/saguenay_white_letters.png?raw=true" alt="Logo" />
+<img src="https://github.com/mpcgt/saguenay/blob/main/src/assets/images/logo/saguenay_white_letters.png?raw=true" alt="Logo" />
   <br /><br />
-<img src="https://github.com/mpcgt/saguenay/blob/main/src/app/assets/images/readme.png?raw=true" alt="Saguenay" />
+<img src="https://github.com/mpcgt/saguenay/blob/main/src/assets/images/readme.png?raw=true" alt="Saguenay" />
 
 # Your network, your world. 🌍
 The **Saguenay social network** is a **dynamic platform** that enables users to **create and join groups** based on their **varied interests**, such as **sports**, **art**, the **environment** and **much more**. By bringing together people who share the same **passions**, the network fosters **exchange** and **interaction** within the **community**.
@@ -25,7 +25,7 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
   
 > \[!TIP]
 >
-> You can see the progress of the Saguenay website development [in this link](https://github.com/users/mpcgt/projects/5)
+> You can see the progress of the Saguenay website development [in this link](https://github.com/users/mpcgt/projects/6)
 
 ## 💻 **Technologies used**
 * **Front-end:** [React](https://react.dev), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/)
