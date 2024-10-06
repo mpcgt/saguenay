@@ -7,7 +7,6 @@ import Saved from "./components/pages/saved"
 import Notification from "./components/pages/notifications"
 import Profile from './components/pages/profile'
 import Settings from "./components/pages/settings"
-import Login from "./components/features/login/login"
 import About from './components/pages/about'
 import Dashboard from './components/pages/dashboard'
 import Waitlist from './components/pages/waitlist'
@@ -26,7 +25,6 @@ export default function App() {
             <Route path="/notification" element={<Notification />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/waitlist" element={<Waitlist />} />
