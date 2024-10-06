@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+src/utils/db.firebase.tsx
+src/components/features/login/login.tsx
+src/components/pages/waitlist.tsx

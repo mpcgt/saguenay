@@ -21,8 +21,8 @@ export default function Hero() {
 
       <div className="md:hidden">
         <button type="button" className="hs-collapse-toggle size-8 flex justify-center items-center text-sm font-semibold rounded-full bg-neutral-800 text-white disabled:opacity-50 disabled:pointer-events-none" id="hs-navbar-floating-dark-collapse" aria-expanded="false" aria-controls="hs-navbar-floating-dark" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-floating-dark">
-          <svg className="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
-          <svg className="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          <svg className="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+          <svg className="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </div>
     </div>
@@ -30,12 +30,12 @@ export default function Hero() {
     <div id="hs-navbar-floating-dark" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-floating-dark-collapse">
       <div className="flex flex-col md:flex-row md:items-center md:justify-end py-2 md:py-0 md:ps-7">
         <Link to="/home"><span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300" aria-current="page">Home</span></Link>
-        <Link to="/discovery"><span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">Discovery</span></Link>
-        <Link to="/404"><span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">Profile</span></Link>
+        <Link to="/waitlist"><span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">Discovery</span></Link>
+        <Link to="/waitlist"><span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">Profile</span></Link>
         <Link to="/404"><span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">About</span></Link>
 
         <div>
-          <Link to="/404"><span className="group inline-flex items-center gap-x-2 py-2 px-3 bg-indigo-500 font-medium text-sm text-white rounded-full focus:outline-none">
+          <Link to="/waitlist"><span className="group inline-flex items-center gap-x-2 py-2 px-3 bg-indigo-500 font-medium text-sm text-white rounded-full focus:outline-none">
             Login
           </span></Link>
         </div>
@@ -55,7 +55,7 @@ export default function Hero() {
         </p>
         <p className="text-sm text-gray-500 mb-8">Saguenay is open-source, you can go to GitHub repositories.</p>
         <div className="flex justify-center space-x-8">
-        <Link to="/discovery"><button type="button" className="transition ease-in-out delay-150 text-white bg-indigo-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"><FontAwesomeIcon icon={faCompass} style={{ fontSize: '20px' }} beat /><span>&nbsp;&nbsp;&nbsp;</span>See current publications</button></Link>
+        <Link to="/waitlist"><button type="button" className="transition ease-in-out delay-150 text-white bg-indigo-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"><FontAwesomeIcon icon={faCompass} style={{ fontSize: '20px' }} beat /><span>&nbsp;&nbsp;&nbsp;</span>See current publications</button></Link>
         <Link to="https://github.com/mpcgt/saguenay" target='_blank'><button type="button" className="transition ease-in-out delay-150 text-white bg-indigo-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"><FontAwesomeIcon icon={faGithub} style={{ fontSize: '20px' }} beat /><span>&nbsp;&nbsp;&nbsp;</span>GitHub</button></Link>
         </div>
       </section>
@@ -79,7 +79,7 @@ export default function Hero() {
             </a>
           </div>
           <div className="bg-gray-900 p-6 rounded-lg">
-            <div className="text-green-400 text-4xl font-bold mb-2">17%<span>&nbsp;</span><FontAwesomeIcon icon={faCircle} fade style={{fontSize: "20px", color: "#ff0000",}} /><span className='text-red-600 text-2xl'>&nbsp;Live</span></div>
+            <div className="text-green-400 text-4xl font-bold mb-2">21%<span>&nbsp;</span><FontAwesomeIcon icon={faCircle} fade style={{fontSize: "20px", color: "#ff0000",}} /><span className='text-red-600 text-2xl'>&nbsp;Live</span></div>
             <h3 className="text-xl font-semibold mb-2">Development progress 🛠️</h3>
             <p className="text-gray-400 mb-4">Saguenay's development is progressing rapidly, with key features already in place to deliver a smooth, secure and user-friendly experience.</p>
             <a href="#" className="text-indigo-400 flex items-center">
