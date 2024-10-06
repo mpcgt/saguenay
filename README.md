@@ -28,9 +28,9 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 > You can see the progress of the Saguenay website development [in this link](https://github.com/users/mpcgt/projects/5)
 
 ## 💻 **Technologies used**
-* **Front-end:** [Angular](https://angular.dev), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/)
-* **Back-end:** [Node.js](https://nodejs.org)
-* **Database:** [Firebase](https://firebase.google.com/)
+* **Front-end:** [React](https://react.dev), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/)
+* **Back-end:** [Node.js](https://nodejs.org) & [Vite](https://vite.dev/)
+* **Database:** [Firebase](https://firebase.google.com/) & [Auth0](https://auth0.com/)
 * **Hosting:** [Vercel](https://vercel.com)
 
 
@@ -47,7 +47,6 @@ $ npm run dev
 >
 > When you go to clone, there will be several files missing (.gitignore) such as :
 >
-> - [x] Login page (Login.tsx).
 > - [x] Database configuration and dependencies (you'll have to configure these yourself).
 > - [x] Dependencies, you can install modules with NPM (look in the import at the beginning of each file).
 
