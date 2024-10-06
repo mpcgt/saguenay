@@ -42,13 +42,13 @@ export default function Navigation() {
                   d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12"
                   className="stroke-blue-600 dark:stroke-white"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12"
                   className="stroke-blue-600 dark:stroke-white"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <circle
                   cx="13"
@@ -73,9 +73,9 @@ export default function Navigation() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.3-4.3" />
@@ -84,7 +84,7 @@ export default function Navigation() {
                 <input
                   type="text"
                   className="py-2 ps-10 pe-16 block w-full bg-black border-gray-700 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600"
-                  placeholder="Search"
+                  placeholder="Search (Coming soon!)"
                 />
                 <div className="hidden absolute inset-y-0 end-0 items-center pointer-events-none z-20 pe-1">
                   <button
@@ -101,49 +101,15 @@ export default function Navigation() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <circle cx="12" cy="12" r="10" />
                       <path d="m15 9-6 6" />
                       <path d="m9 9 6 6" />
                     </svg>
                   </button>
-                </div>
-                <div className="absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-3 text-gray-400">
-                  <svg
-                    className="shrink-0 size-3 text-gray-400 dark:text-white/60"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
-                  </svg>
-                  <span className="mx-1">
-                    <svg
-                      className="shrink-0 size-3 text-gray-400 dark:text-white/60"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="M12 5v14" />
-                    </svg>
-                  </span>
-                  <span className="text-xs">/</span>
                 </div>
               </div>
             </div>
@@ -161,9 +127,9 @@ export default function Navigation() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <circle cx="11" cy="11" r="8" />
                   <path d="m21 21-4.3-4.3" />
@@ -183,35 +149,14 @@ export default function Navigation() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
                   <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
                 </svg>
                 <span className="sr-only">Notifications</span>
-              </button>
-
-              <button
-                type="button"
-                className="size-[38px] relative inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-black text-white hover:bg-gray-900"
-              >
-                <svg
-                  className="shrink-0 size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                </svg>
-                <span className="sr-only">Activity</span>
               </button>
 
               <div className="hs-dropdown [--placement:bottom-right] relative inline-flex">
@@ -251,9 +196,9 @@ export default function Navigation() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <rect width="18" height="18" x="3" y="3" rx="2" />
               <path d="M15 3v18" />
@@ -275,8 +220,8 @@ export default function Navigation() {
                 <path
                   d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
               </svg>
             </li>
@@ -401,78 +346,6 @@ export default function Navigation() {
                 </li>
               </ul>
             </nav>
-          </div>
-        </div>
-      </div>
-
-      <div className="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
-        <div className="relative">
-          <textarea
-            className="p-4 pb-12 block w-full bg-black border-gray-700 rounded-lg text-sm focus:border-black"
-            placeholder="What do you think? (Coming soon!) ;)"
-          ></textarea>
-
-          <div className="absolute bottom-px inset-x-px p-2 rounded-b-lg bg-black">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <button
-                  type="button"
-                  className="inline-flex shrink-0 justify-center items-center size-8 rounded-lg text-gray-500 hover:bg-black focus:z-10 focus:outline-none focus:bg-white"
-                >
-                  <svg
-                    className="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect width="18" height="18" x="3" y="3" rx="2" />
-                    <line x1="9" x2="15" y1="15" y2="9" />
-                  </svg>
-                </button>
-
-                <button
-                  type="button"
-                  className="inline-flex shrink-0 justify-center items-center size-8 rounded-lg text-gray-500 hover:bg-black focus:z-10 focus:outline-none focus:bg-white "
-                >
-                  <svg
-                    className="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48" />
-                  </svg>
-                </button>
-              </div>
-
-              <button
-                type="button"
-                className="inline-flex shrink-0 justify-center items-center size-8 rounded-lg text-white bg-indigo-500 hover:bg-indigo-600 focus:z-10 focus:outline-none focus:bg-indigo-600 transition"
-              >
-                <svg
-                  className="shrink-0 size-3.5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                </svg>
-              </button>
-            </div>
           </div>
         </div>
       </div>

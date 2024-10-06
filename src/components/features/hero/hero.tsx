@@ -79,7 +79,7 @@ export default function Hero() {
             </a>
           </div>
           <div className="bg-gray-900 p-6 rounded-lg">
-            <div className="text-green-400 text-4xl font-bold mb-2">21%<span>&nbsp;</span><FontAwesomeIcon icon={faCircle} fade style={{fontSize: "20px", color: "#ff0000",}} /><span className='text-red-600 text-2xl'>&nbsp;Live</span></div>
+            <div className="text-green-400 text-4xl font-bold mb-2">29%<span>&nbsp;</span><FontAwesomeIcon icon={faCircle} fade style={{fontSize: "20px", color: "#ff0000",}} /><span className='text-red-600 text-2xl'>&nbsp;Live</span></div>
             <h3 className="text-xl font-semibold mb-2">Development progress 🛠️</h3>
             <p className="text-gray-400 mb-4">Saguenay's development is progressing rapidly, with key features already in place to deliver a smooth, secure and user-friendly experience.</p>
             <a href="#" className="text-indigo-400 flex items-center">
@@ -154,7 +154,7 @@ export default function Hero() {
           <div className="space-y-6 md:w-1/3">
             <div>
               <h3 className="font-semibold mb-2">Email us:</h3>
-              <p className="text-gray-400">Coming soon! ;)</p>
+              <p className="text-gray-400">sgn.ntwk@gmail.com</p>
             </div>
             <div>
               <h3 className="font-semibold mb-2">GitHub Discussions</h3>

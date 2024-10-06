@@ -25,3 +25,4 @@ dist-ssr
 .env
 src/utils/db.firebase.tsx
 src/components/features/login/login.tsx
+src/utils/supabaseClient.tsx
