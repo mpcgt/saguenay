@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../../utils/supabaseClient';
+import { supabase } from '../../api/supabase';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');

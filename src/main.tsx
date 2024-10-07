@@ -3,8 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { Auth0Provider } from '@auth0/auth0-react'
 import App from './App.tsx'
 import './index.css'
-import '../src/utils/supabaseClient.tsx';
-
+import './api/supabase.tsx'
 const domain = import.meta.env.REACT_APP_AUTH0_DOMAIN || ''
 const clientId = import.meta.env.REACT_APP_AUTH0_CLIENT_ID || ''
 
