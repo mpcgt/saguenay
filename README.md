@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://github.com/mpcgt/saguenay/blob/main/src/assets/images/logo/saguenay_white_letters.png?raw=true" alt="Logo" />
   <br /><br />
-<img src="https://github.com/mpcgt/saguenay/blob/main/src/assets/images/readme.png?raw=true" alt="Saguenay" />
+<img src="https://github.com/mpcgt/saguenay/blob/main/src/assets/images/image_readme.png?raw=true" alt="Saguenay" />
 
 # Your network, your world. 🌍
 The **Saguenay social network** is a **dynamic platform** that enables users to **create and join groups** based on their **varied interests**, such as **sports**, **art**, the **environment** and **much more**. By bringing together people who share the same **passions**, the network fosters **exchange** and **interaction** within the **community**.
@@ -30,7 +30,7 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 ## 💻 **Technologies used**
 * **Front-end:** [React](https://react.dev), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/)
 * **Back-end:** [Node.js](https://nodejs.org) & [Vite](https://vite.dev/)
-* **Database:** [Firebase](https://firebase.google.com/) & [Auth0](https://auth0.com/)
+* **Database:** [Supabase](https://supabase.com/), [Firebase](https://firebase.google.com/), [Auth0](https://auth0.com/)
 * **Hosting:** [Vercel](https://vercel.com)
 
 
