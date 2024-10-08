@@ -1,9 +1,12 @@
 import { faCircleXmark, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { AuroraHero } from "../ui/aurora";
 
 export default function Waitlist() {
   return (
+    <>
+    <AuroraHero />
     <div className="bg-black min-h-screen flex justify-center items-center">
       <div className="max-w-[50rem] flex flex-col mx-auto size-full">
         <header className="mb-auto flex justify-center z-50 w-full py-4">
@@ -65,5 +68,6 @@ export default function Waitlist() {
         </footer>
       </div>
     </div>
+    </>
   );
 }

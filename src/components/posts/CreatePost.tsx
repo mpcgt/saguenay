@@ -78,6 +78,7 @@ const CreatePost = () => {
             </div>
           </div>
         </div>
+        <p className='text-sm text-right relative bottom-4 left-12 '>Before publishing, please read <a href="https://github.com/mpcgt/saguenay?tab=coc-ov-file#readme" target='blank'>the code of conduct.</a></p>
       </form>
     </div>
   );
