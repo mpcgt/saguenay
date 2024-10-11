@@ -6,14 +6,20 @@ import { Clock, Users } from "lucide-react"
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "../../../assets/images/logo/saguenay_purple.png";
+import { useTranslation } from 'react-i18next';
 import { BackgroundLines } from "../../ui/background-lines";
 import CustomCursor from "./cursor";
 import "../../../index.css";
+import BannerLang from "../banners/bannerLanguage";
 
 export default function Hero() {
+  const { t } = useTranslation();
+
+
   return (
     <>
     <CustomCursor />
+    <BannerLang />
         {/* Navigation */}
         <header className="sticky top-4 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full before:absolute before:inset-0 before:max-w-[66rem] before:mx-2 before:lg:mx-auto before:rounded-[26px] before:bg-neutral-600/30 before:backdrop-blur-md">
           <nav className="relative max-w-[66rem] w-full py-2.5 ps-5 pe-2 md:flex md:items-center md:justify-between md:py-0 mx-2 lg:mx-auto">
@@ -82,29 +88,30 @@ export default function Hero() {
                     className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300"
                     aria-current="page"
                   >
-                    Home
+                    {t('navbarHome')}
                   </span>
                 </Link>
                 <Link to="/waitlist">
                   <span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">
-                    Discovery
+                  {t('navbarDiscovery')}
                   </span>
                 </Link>
                 <Link to="/waitlist">
                   <span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">
-                    Profile
+                  {t('navbarProfile')}
                   </span>
                 </Link>
                 <Link to="/404">
                   <span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">
-                    About
+                  {t('navbarAbout')}
                   </span>
                 </Link>
+                
 
                 <div>
                   <Link to="/waitlist">
                     <span className="group inline-flex items-center gap-x-2 py-2 px-3 bg-indigo-500 font-medium text-sm text-white rounded-full focus:outline-none">
-                      Login
+                    {t('navbarLogin')}
                     </span>
                   </Link>
                 </div>
@@ -115,15 +122,12 @@ export default function Hero() {
 
         {/* Hero Section */}
         <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
-          <h2 className="bg-clip-text text-transparent text-center ahsing bottom-14 bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
-            Your network <br />
-            <span className="text-gray-400"> your world.</span>
+          <h2 className="bg-clip-text text-transparent text-center ahsing bottom-14 bg-gradient-to-b from-neutral-700 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+          {t('welcome1')} <br />
+            <span className="text-gray-400">{t('welcome2')}</span>
           </h2>
           <p className="relative max-w-xl mx-auto text-sm md:text-lg bottom-14 text-white dark:text-white text-center">
-            With the Saguenay social network, users can create groups based on
-            their interests, whether sports, art or the environment. This makes
-            it easy to bring together people who share the same passions and
-            organize activities.
+            {t('presentation')}
           </p>
           <div className="flex justify-center space-x-8">
             <Link to="/waitlist">
@@ -135,7 +139,7 @@ export default function Hero() {
                 <span className="absolute bottom-0 right-0 w-4 h-full bg-gradient-to-l from-white to-transparent opacity-5"></span>
                 <span className="absolute inset-0 w-full h-full border border-white rounded-md opacity-10"></span>
                 <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-5"></span>
-                <span className="relative hover:text-white"><FontAwesomeIcon icon={faCompass} style={{ fontSize: "20px" }} beat />&nbsp;&nbsp;&nbsp;See current publications</span>
+                <span className="relative hover:text-white"><FontAwesomeIcon icon={faCompass} style={{ fontSize: "20px" }} beat />&nbsp;&nbsp;&nbsp;{t('discover-button')}</span>
               </span>
             </Link>
             <Link to="https://github.com/mpcgt/saguenay" target="_blank">
@@ -152,6 +156,7 @@ export default function Hero() {
             </Link>
           </div>
         </BackgroundLines>
+
 
       
         <div className="bg-black p-4 md:p-8">
@@ -253,7 +258,7 @@ export default function Hero() {
           </div>
           <div className="bg-gray-900 p-6 rounded-lg">
             <div className="text-green-400 text-4xl font-bold mb-2">
-              33%<span>&nbsp;</span>
+              37%<span>&nbsp;</span>
               <FontAwesomeIcon
                 icon={faCircle}
                 fade

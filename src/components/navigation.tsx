@@ -292,7 +292,7 @@ export default function Navigation() {
                 </li>
 
                 <li>
-                  <Link to="/404">
+                  <Link to="/notification">
                     <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faEnvelope} />
                       Messages
@@ -310,7 +310,7 @@ export default function Navigation() {
                 </li>
 
                 <li>
-                  <Link to="/404">
+                  <Link to="/settings">
                     <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faGear} />
                       Settings
@@ -319,7 +319,7 @@ export default function Navigation() {
                 </li>
 
                 <li>
-                  <Link to="/404">
+                  <Link to="/groups">
                     <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faPeopleGroup} />
                       Groups
