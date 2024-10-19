@@ -16,7 +16,7 @@ const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 export const AuroraHero = () => {
   const color = useMotionValue(COLORS_TOP[0]);
-
+  
   useEffect(() => {
     animate(color, COLORS_TOP, {
       ease: "easeInOut",
@@ -25,7 +25,7 @@ export const AuroraHero = () => {
       repeatType: "mirror",
     });
   }, [color]);
-
+  
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
   const border = useMotionTemplate`1px solid ${color}`;
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
@@ -33,6 +33,7 @@ export const AuroraHero = () => {
     window.open('mailto:sgn.ntwk@gmail.com?subject=Invitation to join&body=I would like to join your invitation to use Saguenay with this email address:', '_blank', 'noopener,noreferrer');
   };
   return (
+    <>
     <motion.section
       style={{
         backgroundImage,
@@ -41,7 +42,7 @@ export const AuroraHero = () => {
     >
       <div className="relative z-10 flex flex-col items-center">
         <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
-        <FontAwesomeIcon icon={faCircle} fade style={{ fontSize: "15px", color: "#ff0000" }}/><span className="text-red-600 text-base font-bold">&nbsp;&nbsp;Live</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;37% Development progress
+        <FontAwesomeIcon icon={faCircle} fade style={{ fontSize: "15px", color: "#ff0000" }}/><span className="text-red-600 text-base font-bold">&nbsp;&nbsp;Live</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;39% Development progress
         </span>
         <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight">
           Join the waitlist
@@ -81,5 +82,6 @@ export const AuroraHero = () => {
         </Canvas>
       </div>
     </motion.section>
+    </>
   );
 };

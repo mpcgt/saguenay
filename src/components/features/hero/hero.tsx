@@ -27,7 +27,7 @@ export default function Hero() {
               <a
                 className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
                 href="../templates/agency/index.html"
-                aria-label="Preline"
+                aria-label="Saguenay"
               >
                 <h3 className="ahsing text-white text-3xl mb-3">Saguenay</h3>
               </a>
@@ -101,7 +101,7 @@ export default function Hero() {
                   {t('navbarProfile')}
                   </span>
                 </Link>
-                <Link to="/404">
+                <Link to="/about">
                   <span className="p-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-none focus:text-neutral-300">
                   {t('navbarAbout')}
                   </span>
@@ -258,7 +258,7 @@ export default function Hero() {
           </div>
           <div className="bg-gray-900 p-6 rounded-lg">
             <div className="text-green-400 text-4xl font-bold mb-2">
-              37%<span>&nbsp;</span>
+              39%<span>&nbsp;</span>
               <FontAwesomeIcon
                 icon={faCircle}
                 fade

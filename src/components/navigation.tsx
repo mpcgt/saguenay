@@ -23,7 +23,7 @@ export default function Navigation() {
             <a
               className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
               href="#"
-              aria-label="Preline"
+              aria-label="Saguenay"
             >
               <svg
                 className="w-28 h-auto"
@@ -328,7 +328,7 @@ export default function Navigation() {
                 </li>
 
                 <li>
-                  <Link to="/404">
+                  <Link to="/about">
                     <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faCircleInfo} />
                       About
