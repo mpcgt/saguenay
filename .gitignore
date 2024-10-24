@@ -27,3 +27,6 @@ dist-ssr
 .env
 src/utils/db.firebase.tsx
 src/components/features/login/login.tsx
+
+# Easter Egg 🥚
+src/components/pages/tictactoe.tsx

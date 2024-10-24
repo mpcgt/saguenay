@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Bell, Info, CheckCircle, AlertTriangle, XCircle, X } from 'lucide-react'
-import Navigation from '../navigation'
+import Navigation from '../navigationDiscovery'
 
 type NotificationType = 'info' | 'success' | 'warning' | 'error'
 
@@ -49,7 +49,7 @@ export default function Notification() {
   return (
     <>
     <Navigation />
-    <div className="min-h-screen bg-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <div className="bg-black shadow rounded-lg overflow-hidden">
           <div className="p-4 sm:p-6 border-b border-gray-200">

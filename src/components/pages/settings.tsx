@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import Navigation from '../navigation'
+import Navigation from '../navigationDiscovery'
 
 export default function Settings() {
   const { i18n } = useTranslation();
@@ -11,7 +11,7 @@ export default function Settings() {
   return (
     <>
     <Navigation />
-    <div className="min-h-screen bg-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto bg-black rounded-lg shadow-md overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <h1 className="text-lg font-medium leading-6 text-white mb-4">Settings</h1>

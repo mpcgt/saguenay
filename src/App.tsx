@@ -18,6 +18,7 @@ import { initReactI18next } from 'react-i18next'
 import enTranslation from './locales/en/translation.json'
 import frTranslation from './locales/fr/traduction.json'
 import esTranslation from './locales/es/traducción.json'
+import TicTacToe from './components/pages/tictactoe'
 
 i18next.use(initReactI18next).init({
   resources: {
@@ -33,6 +34,32 @@ i18next.use(initReactI18next).init({
 });
 
 export default function App() {
+  console.log(
+    "%cWAIT!!!",
+    "color: #A36EEB; font-size: 120px; font-weight: bold;"
+  );
+
+  console.log(
+    "%cIf someone asks you to copy/paste something here, ABSOLUTELY don't, your risk of being hacked is 999%!!!",
+    "color: #FFF; font-size: 30px; font-weight: bold;"
+  );
+
+  console.log(
+    "%cPlease, for your own safety, don't do anything! If you paste, you could be attacked!",
+    "color: #FF0000; font-size: 30px; font-weight: bold;"
+  );
+
+  console.log(
+    "%cYou'll be safe only if you CLOSE this tab!",
+    "color: #FFF; font-size: 30px; font-weight: bold;"
+  );
+
+  console.log(
+    "%cIf you really don't know what to do in Saguenay, I suggest you play tic-tac-toe: https://www.saguenay.vercel.app/tictactoe.",
+    "color: #FFF; font-size: 15px;"
+  );
+
+
   return (
     <>
     <I18nextProvider i18n={i18next}>
@@ -51,6 +78,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/waitlist" element={<Waitlist />} />
+            <Route path="/tictactoe" element={<TicTacToe />} />
             <Route path="/404" element={<Error />} />
           </Routes>
     </Router>

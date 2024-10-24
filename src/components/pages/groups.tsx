@@ -1,4 +1,4 @@
-import Navigation from "../navigation";
+import Navigation from "../navigationDiscovery";
 import Chat from "../../assets/images/groups/chat.png";
 import Food from "../../assets/images/groups/food.png";
 import Music from "../../assets/images/groups/music.png";
@@ -22,7 +22,7 @@ export default function Groups() {
           </div>
           <div className="p-4 md:p-6">
             <span className="block mb-1 text-xs font-semibold uppercase text-orange-400 dark:text-orange-400">
-            Group created by Saguenay
+            Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
             Discussions
@@ -55,7 +55,7 @@ export default function Groups() {
           </div>
           <div className="p-4 md:p-6">
             <span className="block mb-1 text-xs font-semibold uppercase text-yellow-400 dark:text-yellow-400">
-            Group created by Saguenay
+            Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
             Food
@@ -80,7 +80,7 @@ export default function Groups() {
           </div>
           <div className="p-4 md:p-6">
             <span className="block mb-1 text-xs font-semibold uppercase text-indigo-400">
-            Group created by Saguenay
+            Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
             Music
@@ -113,7 +113,7 @@ export default function Groups() {
           </div>
           <div className="p-4 md:p-6">
             <span className="block mb-1 text-xs font-semibold uppercase text-green-500 dark:text-green-500">
-            Group created by Saguenay
+            Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
             Nature
@@ -147,7 +147,7 @@ export default function Groups() {
           </div>
           <div className="p-4 md:p-6">
             <span className="block mb-1 text-xs font-semibold uppercase text-blue-400 dark:text-blue-400">
-            Group created by Saguenay
+            Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
             Animals
@@ -180,7 +180,7 @@ export default function Groups() {
           </div>
           <div className="p-4 md:p-6">
             <span className="block mb-1 text-xs font-semibold uppercase text-indigo-400 dark:text-indigo-400">
-            Group created by Saguenay
+            Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
             Photography
