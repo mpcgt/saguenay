@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Navigation from '../navigationDiscovery'
 
 export default function Settings() {
+  useEffect(() => {
+    document.title = 'Settings - Saguenay';
+  }, []);
   const { i18n } = useTranslation();
 
   const changeLanguage = (language: string | undefined) => {

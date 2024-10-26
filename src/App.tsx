@@ -19,6 +19,7 @@ import enTranslation from './locales/en/translation.json'
 import frTranslation from './locales/fr/traduction.json'
 import esTranslation from './locales/es/traducción.json'
 import TicTacToe from './components/pages/tictactoe'
+import CreatePost from './components/posts/CreatePost'
 
 i18next.use(initReactI18next).init({
   resources: {
@@ -35,8 +36,8 @@ i18next.use(initReactI18next).init({
 
 export default function App() {
   console.log(
-    "%cWAIT!!!",
-    "color: #A36EEB; font-size: 120px; font-weight: bold;"
+    "%cSTOP!!!",
+    "color: #FF0000; font-size: 120px; font-weight: bold;"
   );
 
   console.log(
@@ -55,7 +56,7 @@ export default function App() {
   );
 
   console.log(
-    "%cIf you really don't know what to do in Saguenay, I suggest you play tic-tac-toe: https://www.saguenay.vercel.app/tictactoe.",
+    "%cIf you really don't know what to do in Saguenay, I suggest you play tic-tac-toe: https://saguenay.vercel.app/tictactoe.",
     "color: #FFF; font-size: 15px;"
   );
 
@@ -70,6 +71,7 @@ export default function App() {
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Home />} />
             <Route path="/discovery" element={<Discovery />} />
+            <Route path="/create" element={<CreatePost />} />
             <Route path="/saved" element={<Saved />} />
             <Route path="/notification" element={<Notification />} />
             <Route path="/profile" element={<Profile />} />

@@ -122,7 +122,7 @@ export default function Hero() {
           </div>
           <div className="bg-gray-900 p-6 rounded-lg">
             <div className="text-green-400 text-4xl font-bold mb-2">
-              39%<span>&nbsp;</span>
+              42%<span>&nbsp;</span>
               <FontAwesomeIcon
                 icon={faCircle}
                 fade

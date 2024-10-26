@@ -96,11 +96,11 @@ export default function TicTacToe() {
   const winner = calculateWinner(board)
   let status
   if (winner) {
-    status = winner === 'X' ? 'Vous avez gagné !' : 'Le robot a gagné !'
+    status = winner === 'X' ? 'You win!' : 'The robot wins!'
   } else if (board.every(square => square !== null)) {
-    status = 'Match nul !'
+    status = 'A draw!'
   } else {
-    status = isPlayerTurn ? 'À votre tour' : 'Le robot réfléchit...'
+    status = isPlayerTurn ? 'Your turn' : 'The robot thinks...'
   }
 
   return (

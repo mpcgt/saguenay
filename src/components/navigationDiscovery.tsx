@@ -106,9 +106,23 @@ export default function Navigation() {
               </button>
 
               <button
+                data-popover-target="popover-bottom"
+                data-popover-placement="bottom"
+                className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+              >
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                  <Link to="/create" className="text-white hover:text-white">
+                    Create Post
+                  </Link>
+                </span>
+              </button>
+
+              <button
                 type="button"
                 className="size-[38px] relative inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-black text-white hover:bg-gray-900"
               >
+                <Link to="/notification" className="text-white hover:text-white">
                 <svg
                   className="shrink-0 size-4"
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,6 +139,7 @@ export default function Navigation() {
                   <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
                 </svg>
                 <span className="sr-only">Notifications</span>
+                </Link>
               </button>
 
               <div className="hs-dropdown [--placement:bottom-right] relative inline-flex">
@@ -175,7 +190,7 @@ export default function Navigation() {
               <ul className="flex flex-col space-y-1">
                 <li>
                   <Link to="/home">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faHouse} />
                       Home
                     </span>
@@ -184,7 +199,7 @@ export default function Navigation() {
 
                 <li>
                   <Link to="/discovery">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faEarthEurope} />
                       Discovery
                     </span>
@@ -193,7 +208,7 @@ export default function Navigation() {
 
                 <li>
                   <Link to="/404">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faBookmark} />
                       Saved
                     </span>
@@ -202,7 +217,7 @@ export default function Navigation() {
 
                 <li>
                   <Link to="/notification">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faEnvelope} />
                       Messages
                     </span>
@@ -211,7 +226,7 @@ export default function Navigation() {
 
                 <li>
                   <Link to="/404">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faUser} />
                       Profile
                     </span>
@@ -220,7 +235,7 @@ export default function Navigation() {
 
                 <li>
                   <Link to="/settings">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faGear} />
                       Settings
                     </span>
@@ -229,7 +244,7 @@ export default function Navigation() {
 
                 <li>
                   <Link to="/groups">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faPeopleGroup} />
                       Groups
                     </span>
@@ -238,7 +253,7 @@ export default function Navigation() {
 
                 <li>
                   <Link to="/about">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faCircleInfo} />
                       About
                     </span>
@@ -247,28 +262,24 @@ export default function Navigation() {
 
                 <li>
                   <Link to="https://github.com/mpcgt/saguenay" target="blank">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg hover:text-white dark:bg-black">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faGithub} />
                       GitHub
                     </span>
                   </Link>{" "}
                 </li>
-
-                <li>
-                  <button
-                    data-popover-target="popover-bottom"
-                    data-popover-placement="bottom"
-                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] left-12 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-                  >
-                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                      Create Post
-                    </span>
-                  </button>
-                </li>
               </ul>
             </nav>
           </div>
+          <div className="space-x-2 text-xs ml-3 mr-3 mb-3">
+      <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">Invite people •</Link>
+      <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">Rules •</Link>
+      <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">Confidentality •</Link>
+      <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">Documentation •</Link>
+      <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">GitHub repository</Link>
+      </div>
+      <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">Saguenay is an open-source social network, with no ads and no weird trackers. <i>(v.0.2.18)</i></p>
+        <a href="https://github.com/mpcgt/saguenay" target="_blank" className="relative ml-3 mr-3 mb-5 font-bold text-xs underline text-gray-700 hover:text-gray-800">GitHub Repository</a>
         </div>
       </div>
     </>

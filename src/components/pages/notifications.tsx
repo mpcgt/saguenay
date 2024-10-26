@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Bell, Info, CheckCircle, AlertTriangle, XCircle, X } from 'lucide-react'
 import Navigation from '../navigationDiscovery'
 
@@ -32,6 +32,9 @@ const NotificationIcon: React.FC<{ type: NotificationType }> = ({ type }) => {
 }
 
 export default function Notification() {
+  useEffect(() => {
+    document.title = 'Messages - Saguenay';
+  }, []);
   const [notifications, setNotifications] = useState<Notification[]>(initialNotifications)
 
   const markAsRead = (id: number) => {

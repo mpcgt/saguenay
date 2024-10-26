@@ -1,8 +1,12 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Error() {
+  useEffect(() => {
+    document.title = '404 - Saguenay';
+  }, []);
   return (
     <div className="bg-black min-h-screen flex justify-center items-center">
       <div className="max-w-[50rem] flex flex-col mx-auto size-full">

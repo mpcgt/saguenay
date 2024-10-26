@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "../navigationDiscovery";
 import Chat from "../../assets/images/groups/chat.png";
 import Food from "../../assets/images/groups/food.png";
@@ -7,6 +8,9 @@ import Pets from "../../assets/images/groups/pets.png";
 import Pictures from "../../assets/images/groups/picture.png";
 
 export default function Groups() {
+  useEffect(() => {
+    document.title = 'Groups - Saguenay';
+  }, []);
   return (
     <>
     <Navigation />

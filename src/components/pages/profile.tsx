@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
+  useEffect(() => {
+    document.title = 'Profile - Saguenay';
+  }, []);
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {

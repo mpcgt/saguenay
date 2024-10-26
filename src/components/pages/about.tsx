@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import NavigationBar from "../features/navbar/navigation";
 
 export default function About() {
+  useEffect(() => {
+    document.title = 'About - Saguenay';
+  }, []);
   return (
     <>
       <div className="min-h-screen bg-indigo-300 py-12 px-4 sm:px-6 lg:px-8">

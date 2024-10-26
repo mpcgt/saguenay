@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 export default function Saved() {
+  useEffect(() => {
+    document.title = 'Saved - Saguenay';
+  }, []);
     return (
       <div>
         <h1>Saved</h1>
