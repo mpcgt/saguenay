@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 export default function Navigation() {
   return (
     <>
-      <header className="fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-black text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
+      <header className="fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-black border-b border-gray-700 text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
         <nav className="px-4 sm:px-6 flex basis-full items-center w-full mx-auto">
           <div className="me-5 lg:me-0 lg:hidden">
             <a
@@ -171,7 +171,8 @@ export default function Navigation() {
   fixed inset-y-0 start-0 z-[60]
   bg-black
   lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
-  dark:bg-black dark:black"
+  dark:bg-black dark:black
+  border-r border-gray-700"
         role="dialog"
         aria-label="Sidebar"
       >
@@ -281,7 +282,7 @@ export default function Navigation() {
       <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">Documentation •</Link>
       <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">GitHub repository</Link>
       </div>
-      <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">Saguenay is an open-source social network, with no ads and no weird trackers. <i>(v.0.2.19)</i></p>
+      <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">Saguenay is an open-source social network, with no ads and no weird trackers. <i>(v.0.2.20)</i></p>
         <a href="https://github.com/mpcgt/saguenay" target="_blank" className="relative ml-3 mr-3 mb-5 font-bold text-xs underline text-gray-700 hover:text-gray-800">GitHub Repository</a>
         </div>
       </div>

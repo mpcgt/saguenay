@@ -10,13 +10,13 @@ export default function Discovery() {
   }, []);
     return (
       <>
-      <div>
+      <div className="bg-black">
         <Navigation />
-      </div>
       <ViewPosts />
         <div className="min-h-screen flex items-center justify-center">
         <ScreenTime />
         </div>
+      </div>
     </>
     );
   }

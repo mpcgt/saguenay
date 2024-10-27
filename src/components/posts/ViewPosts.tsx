@@ -63,8 +63,8 @@ const ViewPosts = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-full text-white mt-20">
-        <h1 className="text-3xl font-bold mb-4">
+      <div className="flex flex-col items-center justify-center h-full text-white bg-black mt-16">
+        <h1 className="text-3xl font-bold mt-5 mb-4">
           Publications in real time&nbsp;&nbsp;
           <FontAwesomeIcon
             icon={faCircle}
@@ -97,7 +97,7 @@ const ViewPosts = () => {
             {posts.map((post) => (
               <li
                 key={post.id}
-                className="border-t border-b border-gray-700 bg-black p-4 mb-3 rounded"
+                className="border border-gray-700 p-4 "
               >
                 <h2 className="text-sm text-gray-400">
                   {findUserName(post.user_name)}
@@ -108,22 +108,22 @@ const ViewPosts = () => {
                 <p className="text-sm text-gray-400 mt-2">
                   {new Date(post.created_at).toLocaleString()}
                 </p>
-                <div className="bg-gray-900 mt-3 w-44 rounded-xl">
+                <div className="flex justify-between border-t border-gray-600 mt-3">
                   <FontAwesomeIcon
                     icon={faHeart}
-                    className="m-3 text-lg hover:text-red-500 cursor-pointer transition-all"
+                    className="m-3 text-lg text-gray-500 hover:text-red-500 cursor-pointer transition-all"
                   />
                   <FontAwesomeIcon
                     icon={faComment}
-                    className="m-3 text-lg hover:text-blue-400 cursor-pointer transition-all"
+                    className="m-3 text-lg text-gray-500 hover:text-blue-400 cursor-pointer transition-all"
                   />
                   <FontAwesomeIcon
                     icon={faShareFromSquare}
-                    className="m-3 text-lg hover:text-green-300 cursor-pointer transition-all"
+                    className="m-3 text-lg text-gray-500 hover:text-green-300 cursor-pointer transition-all"
                   />
                   <FontAwesomeIcon
                     icon={faBookmark}
-                    className="m-3 text-lg hover:text-indigo-400 cursor-pointer transition-all"
+                    className="m-3 text-lg text-gray-500 hover:text-indigo-400 cursor-pointer transition-all"
                   />
                 </div>
               </li>
@@ -132,8 +132,9 @@ const ViewPosts = () => {
         )}
       </div>
       <div className="fixed top-20 right-10 justify-end text-white hidden lg:block ">
-        <div className="bg-black text-white p-4 rounded-lg max-w-xs">
-          <h2 className="text-lg font-semibold mb-4">You might like</h2>
+        <div className="bg-gray-900 text-white p-4 rounded-2xl max-w-xs">
+          <h2 className="text-lg font-semibold mb-2">You might like</h2>
+          <hr className="border-gray-600 w-32 mb-4" />
           <ul className="space-y-4">
             {suggestions.map((suggestion, index) => (
               <li key={index} className="flex items-center justify-between">
@@ -160,7 +161,7 @@ const ViewPosts = () => {
               </li>
             ))}
           </ul>
-          <button className="text-blue-400 mt-4 text-sm">Show more</button>
+          <button className="bg-gray-800 text-indigo-400 mt-4 text-sm">Show more</button>
         </div>
       </div>
     </>

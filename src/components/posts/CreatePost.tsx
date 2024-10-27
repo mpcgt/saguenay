@@ -44,7 +44,8 @@ const CreatePost = () => {
   return (
     <>
       <Navigation />
-      <div className="w-full pt-10 mx-auto flex flex-col items-center mt-20">
+      <div className="bg-black">
+      <div className="w-full pt-10 mx-auto flex flex-col items-center mt-16">
         <h1 className="text-3xl mb-5 font-bold">Create Post</h1>
         <form
           onSubmit={handleSubmit}
@@ -128,6 +129,7 @@ const CreatePost = () => {
             </button>
           </div>
         </form>
+      </div>
       </div>
     </>
   );

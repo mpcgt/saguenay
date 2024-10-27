@@ -15,7 +15,8 @@ export default function Groups() {
   return (
     <>
     <Navigation />
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-72 mt-20">
+    <div className="bg-black">
+    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-72 mt-16">
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="group flex flex-col h-full bg-black border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
           <div className="h-52 flex flex-col justify-center items-center bg-orange-400 rounded-t-xl">
@@ -216,6 +217,7 @@ export default function Groups() {
           </div>
         </div>
       </div>
+    </div>
     </div>
 </>
   )
