@@ -3,23 +3,29 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from "@vercel/analytics/react"
 import Home from './components/pages/home'
 import Discovery from './components/pages/discovery'
+import CreatePost from './components/posts/CreatePost'
 import Saved from "./components/pages/saved"
 import Notification from "./components/pages/notifications"
 import Profile from './components/pages/profile'
 import Settings from "./components/pages/settings"
 import Groups from './components/pages/groups'
+import AnimalsAbout from './components/pages/groups/animalsAbout'
+import DiscussionsAbout from './components/pages/groups/discussionsAbout'
+import FoodAbout from './components/pages/groups/foodAbout'
+import MusicAbout from './components/pages/groups/musicAbout'
+import NatureAbout from './components/pages/groups/natureAbout'
+import PhotographyAbout from './components/pages/groups/photographyAbout'
 import About from './components/pages/about'
 import Dashboard from './components/pages/dashboard'
 import Waitlist from './components/pages/waitlist'
 import Error from './components/pages/404'
+import TicTacToe from './components/pages/tictactoe'
 import { I18nextProvider } from 'react-i18next'
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next'
 import enTranslation from './locales/en/translation.json'
 import frTranslation from './locales/fr/traduction.json'
 import esTranslation from './locales/es/traducción.json'
-import TicTacToe from './components/pages/tictactoe'
-import CreatePost from './components/posts/CreatePost'
 
 i18next.use(initReactI18next).init({
   resources: {
@@ -77,6 +83,12 @@ export default function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/groups" element={<Groups />} />
+            <Route path="/animals" element={<AnimalsAbout />} />
+            <Route path="/discussions" element={<DiscussionsAbout />} />
+            <Route path="/food" element={<FoodAbout />} />
+            <Route path="/music" element={<MusicAbout />} />
+            <Route path="/nature" element={<NatureAbout />} />
+            <Route path="/photography" element={<PhotographyAbout />} />
             <Route path="/about" element={<About />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/waitlist" element={<Waitlist />} />

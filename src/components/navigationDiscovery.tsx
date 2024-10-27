@@ -9,6 +9,7 @@ import {
   faGear,
   faPeopleGroup,
   faUser,
+  faFeather,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +18,7 @@ import { Link } from "react-router-dom";
 export default function Navigation() {
   return (
     <>
-      <header className="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-black text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
+      <header className="fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-black text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
         <nav className="px-4 sm:px-6 flex basis-full items-center w-full mx-auto">
           <div className="me-5 lg:me-0 lg:hidden">
             <a
@@ -113,7 +114,8 @@ export default function Navigation() {
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
                   <Link to="/create" className="text-white hover:text-white">
-                    Create Post
+                  <FontAwesomeIcon icon={faFeather} className="fa-xl" style={{color: "#ffffff",}} />
+                    &nbsp;&nbsp;Create Post
                   </Link>
                 </span>
               </button>
@@ -207,6 +209,15 @@ export default function Navigation() {
                 </li>
 
                 <li>
+                  <Link to="/groups">
+                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
+                      <FontAwesomeIcon icon={faPeopleGroup} />
+                      Groups
+                    </span>
+                  </Link>{" "}
+                </li>
+
+                <li>
                   <Link to="/404">
                     <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <FontAwesomeIcon icon={faBookmark} />
@@ -242,14 +253,6 @@ export default function Navigation() {
                   </Link>{" "}
                 </li>
 
-                <li>
-                  <Link to="/groups">
-                    <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-gray-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
-                      <FontAwesomeIcon icon={faPeopleGroup} />
-                      Groups
-                    </span>
-                  </Link>{" "}
-                </li>
 
                 <li>
                   <Link to="/about">
@@ -278,7 +281,7 @@ export default function Navigation() {
       <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">Documentation •</Link>
       <Link to="/404" className="text-gray-500 hover:text-gray-700 transition-all">GitHub repository</Link>
       </div>
-      <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">Saguenay is an open-source social network, with no ads and no weird trackers. <i>(v.0.2.18)</i></p>
+      <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">Saguenay is an open-source social network, with no ads and no weird trackers. <i>(v.0.2.19)</i></p>
         <a href="https://github.com/mpcgt/saguenay" target="_blank" className="relative ml-3 mr-3 mb-5 font-bold text-xs underline text-gray-700 hover:text-gray-800">GitHub Repository</a>
         </div>
       </div>

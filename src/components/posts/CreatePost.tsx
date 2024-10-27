@@ -31,7 +31,7 @@ const CreatePost = () => {
     const { error } = await supabase.from("posts").insert([{ title, content }]);
 
     if (error) {
-      console.error("Error inserting post:", error);
+      console.error("Error inserting post:", error.message, error.details);
     } else {
       setTitle("");
       setContent("");
@@ -44,9 +44,8 @@ const CreatePost = () => {
   return (
     <>
       <Navigation />
-      <div className="w-full pt-10 mx-auto flex flex-col items-center">
-        <h1 className="text-3xl font-bold">Create Post</h1>
-        <h3 className="text-base text-red-600 font-bold mb-4">Sorry, you can't create publications at the moment... 😓</h3>
+      <div className="w-full pt-10 mx-auto flex flex-col items-center mt-20">
+        <h1 className="text-3xl mb-5 font-bold">Create Post</h1>
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md flex flex-col items-center"
@@ -58,6 +57,7 @@ const CreatePost = () => {
               placeholder="Enter post title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              disabled
               required
             />
           </div>
@@ -68,6 +68,7 @@ const CreatePost = () => {
               placeholder="Enter post content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              disabled
               required
               rows={5}
             ></textarea>
@@ -78,7 +79,7 @@ const CreatePost = () => {
                 <button
                 onClick={submitClick}
                   type="submit"
-                  className="inline-flex w-20 shrink-0 justify-center items-center size-8 rounded-lg text-white bg-indigo-500 hover:bg-indigo-600 focus:z-10 focus:outline-none focus:bg-indigo-600 transition"
+                  className="inline-flex w-20 shrink-0 justify-center items-center size-8 text-white bg-indigo-500 hover:bg-indigo-600 focus:z-10 focus:outline-none focus:bg-indigo-600 transition"
                   disabled={loading}
                 >
                   {loading ? (

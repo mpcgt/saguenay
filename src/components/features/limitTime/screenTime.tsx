@@ -26,7 +26,7 @@ export default function ScreenTime() {
     <>
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 backdrop-blur-md">
-          <div className="bg-black rounded-lg shadow-xl max-w-md w-full z-50">
+          <div className="bg-gray-800 shadow-xl rounded-lg max-w-md w-full z-50">
             <div className="flex justify-between items-center p-6 border-b">
               <h2 className="text-xl font-semibold text-white">
                 Screen time in Saguenay

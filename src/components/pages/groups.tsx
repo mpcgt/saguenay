@@ -6,6 +6,7 @@ import Music from "../../assets/images/groups/music.png";
 import Nature from "../../assets/images/groups/nature.png";
 import Pets from "../../assets/images/groups/pets.png";
 import Pictures from "../../assets/images/groups/picture.png";
+import { Link } from "react-router-dom";
 
 export default function Groups() {
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function Groups() {
   return (
     <>
     <Navigation />
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-72 ">
+    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-72 mt-20">
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="group flex flex-col h-full bg-black border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
           <div className="h-52 flex flex-col justify-center items-center bg-orange-400 rounded-t-xl">
@@ -25,7 +26,7 @@ export default function Groups() {
               </linearGradient>
           </div>
           <div className="p-4 md:p-6">
-            <span className="block mb-1 text-xs font-semibold uppercase text-orange-400 dark:text-orange-400">
+            <span className="block mb-1 text-xs font-extrabold uppercase text-orange-400 dark:text-orange-400">
             Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
@@ -36,10 +37,12 @@ export default function Groups() {
             </p>
           </div>
           <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <Link to="/discussions" className="text-white hover:text-white">
             About
+            </Link>
             </a>
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
               Join
             </a>
           </div>
@@ -58,7 +61,7 @@ export default function Groups() {
               </clipPath>
           </div>
           <div className="p-4 md:p-6">
-            <span className="block mb-1 text-xs font-semibold uppercase text-yellow-400 dark:text-yellow-400">
+            <span className="block mb-1 text-xs font-extrabold uppercase text-yellow-400 dark:text-yellow-400">
             Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
@@ -69,10 +72,12 @@ export default function Groups() {
             </p>
           </div>
           <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+              <Link to="/food" className="text-white hover:text-white">
               About
+              </Link>
             </a>
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
               Join
             </a>
           </div>
@@ -83,7 +88,7 @@ export default function Groups() {
           <img src={Music} width={125} style={{ borderRadius: "20px"}} />
           </div>
           <div className="p-4 md:p-6">
-            <span className="block mb-1 text-xs font-semibold uppercase text-indigo-400">
+            <span className="block mb-1 text-xs font-extrabold uppercase text-indigo-400">
             Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
@@ -94,10 +99,12 @@ export default function Groups() {
             </p>
           </div>
           <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <Link to="/music" className="text-white hover:text-white">
               About
+              </Link>
             </a>
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
               Join
             </a>
           </div>
@@ -116,7 +123,7 @@ export default function Groups() {
               </clipPath>
           </div>
           <div className="p-4 md:p-6">
-            <span className="block mb-1 text-xs font-semibold uppercase text-green-500 dark:text-green-500">
+            <span className="block mb-1 text-xs font-extrabold uppercase text-green-500 dark:text-green-500">
             Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
@@ -127,10 +134,12 @@ export default function Groups() {
             </p>
           </div>
           <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <Link to="/nature" className="text-white hover:text-white">
               About
+              </Link>
             </a>
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
               Join
             </a>
           </div>
@@ -150,7 +159,7 @@ export default function Groups() {
 
           </div>
           <div className="p-4 md:p-6">
-            <span className="block mb-1 text-xs font-semibold uppercase text-blue-400 dark:text-blue-400">
+            <span className="block mb-1 text-xs font-extrabold uppercase text-blue-400 dark:text-blue-400">
             Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
@@ -161,10 +170,12 @@ export default function Groups() {
             </p>
           </div>
           <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <Link to="/animals" className="text-white hover:text-white">
               About
+              </Link>
             </a>
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
               Join
             </a>
           </div>
@@ -183,7 +194,7 @@ export default function Groups() {
               </clipPath>
           </div>
           <div className="p-4 md:p-6">
-            <span className="block mb-1 text-xs font-semibold uppercase text-indigo-400 dark:text-indigo-400">
+            <span className="block mb-1 text-xs font-extrabold uppercase text-indigo-400 dark:text-indigo-400">
             Group created by Saguenay <i>(Coming soon!)</i>
             </span>
             <h3 className="text-xl font-semibold text-white dark:text-neutral-300 dark:hover:text-white">
@@ -194,10 +205,12 @@ export default function Groups() {
             </p>
           </div>
           <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <Link to="/photography" className="text-white hover:text-white">
               About
+              </Link>
             </a>
-            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-50 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            <a className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-black text-white shadow-sm hover:bg-gray-600 focus:outline-none focus:bg-gray-700 hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
               Join
             </a>
           </div>

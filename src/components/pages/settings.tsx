@@ -15,7 +15,7 @@ export default function Settings() {
   return (
     <>
     <Navigation />
-    <div className="min-h-screen bg-neutral-800 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-neutral-800 py-12 px-4 sm:px-6 lg:px-8 mt-20">
       <div className="max-w-md mx-auto bg-black rounded-lg shadow-md overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <h1 className="text-lg font-medium leading-6 text-white mb-4">Settings</h1>
