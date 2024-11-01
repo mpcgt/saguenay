@@ -332,7 +332,7 @@ export default function Navigation() {
           </div>
           <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">
             Saguenay is an open-source social network, with no ads and no weird
-            trackers. <i>(v.0.2.22)</i>
+            trackers. <i>(v.0.2.23)</i>
           </p>
           <a
             href="https://github.com/mpcgt/saguenay"

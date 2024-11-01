@@ -26,7 +26,7 @@ export default function ScreenTime() {
     <>
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 backdrop-blur-md">
-          <div className="bg-gray-800 shadow-xl rounded-lg max-w-md w-full z-50">
+          <div className="bg-zinc-900 shadow-xl rounded-3xl max-w-md w-full z-50">
             <div className="flex justify-between items-center p-6 border-b">
               <h2 className="text-xl font-semibold text-white">
                 Screen time in Saguenay
@@ -135,13 +135,13 @@ export default function ScreenTime() {
             <div className="flex justify-end space-x-4 p-6 border-t">
               <button
                 onClick={closeModal}
-                className="px-4 py-2 border border-gray-300 text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                className="px-4 py-2 border border-gray-300 text-white hover:bg-gray-900 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
               >
                 Cancel
               </button>
               <button
                 onClick={closeModal}
-                className="px-4 py-2 bg-red-600 border border-transparent text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                className="px-4 py-2 bg-red-600 border border-transparent text-white hover:bg-red-700 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               >
                 Exit
               </button>
