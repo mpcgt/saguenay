@@ -11,14 +11,17 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 >
 > **Star Us**, You will receive all release notifications from GitHub without any delay ⭐️
 
-## ✨ **Features** _(Coming soon)_
-* **Creation of Custom Profiles:** Users can create a detailed profile, including a photo, a biography, and their **interests**.
-* **Group Search:** An **intuitive** search engine allows users to easily find groups based on keywords or **categories** (sports, art, environment, etc.).
-* **Group Creation:** Any user can create a group on a theme of their choice, set **rules**, and invite other members.
-* **Publications and Exchanges:** Members can post content (texts, photos, videos), comment on others' posts, and participate in **discussions**.
-* **Private Messaging:** A messaging system allows users to communicate **privately** with other members.
-* **Notifications:** Users are informed of new posts, comments, and invitations.
-* **Integration with Existing Social Networks:** Ability to connect via Facebook, Google, or other accounts to facilitate **registration**.
+## ✨ **Features**
+* **Discovery:** Allows you to **discover new or recommended content**. *This can include **suggestions for friends**, **groups** or **publications based** on the **user's preferences and interests**.
+* **Groups:** Takes you to a section where you can see the **groups you belong to**, or **explore new group**s. Groups are often created around **shared interests or communities**.
+* **Saved:** *Displays content that the user has **tagged or saved** for **future reference**. This can **include publications, links or articles**.
+* **Messages:** Keeps you up **to date on Saguenay news**. It displays **relevant news**, **updates** or **events taking place**, to keep users **up to date** with what's going on around them.
+* **Profile:** *Directs to the **user's personal profile**. This page displays **user information** such as **name**, **photo**, **bio**, **publications**, and **other personal information**.
+* **Settings:** Allows you to **modify application** or **user account settings****. This typically includes privacy preferences***, **notifications***, and **other personalization options**.
+* **About:** Provides information about the **site**, such as its **mission**. This is often a place **to learn more** about the platform's **goals**.
+* **Help:** **Offers help** and **support to users**. This may include **FAQs**, **support articles**, or **ways to contact technical support to solve problems**.
+
+*Currently under development
 
 > ✨ more features will be added when Saguenay evolve.
 
@@ -30,7 +33,7 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 ## 💻 **Technologies used**
 * **Front-end:** [React](https://react.dev), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/)
 * **Back-end:** [Node.js](https://nodejs.org) & [Vite](https://vite.dev/)
-* **Database:** [Supabase](https://supabase.com/), [Firebase](https://firebase.google.com/), [Auth0](https://auth0.com/)
+* **Database:** [Supabase](https://supabase.com/), [Firebase](https://firebase.google.com/)
 * **Hosting:** [Vercel](https://vercel.com)
 
 

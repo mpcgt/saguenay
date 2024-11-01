@@ -27,6 +27,12 @@ import enTranslation from './locales/en/translation.json'
 import frTranslation from './locales/fr/traduction.json'
 import esTranslation from './locales/es/traducción.json'
 import Rules from './components/pages/rules'
+import Help from './components/pages/help'
+import Development from './components/pages/development'
+import Faq from './components/pages/help/faq'
+import Guides from './components/pages/help/guides'
+import Security from './components/pages/help/security'
+import SettingsAccount from './components/pages/help/settings-account'
 
 i18next.use(initReactI18next).init({
   resources: {
@@ -91,10 +97,16 @@ export default function App() {
             <Route path="/nature" element={<NatureAbout />} />
             <Route path="/photography" element={<PhotographyAbout />} />
             <Route path="/about" element={<About />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/guides" element={<Guides />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/settings-account" element={<SettingsAccount />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/rules" element={<Rules />} />
             <Route path="/waitlist" element={<Waitlist />} />
             <Route path="/tictactoe" element={<TicTacToe />} />
+            <Route path="/development" element={<Development />} />
             <Route path="/404" element={<Error />} />
           </Routes>
     </Router>

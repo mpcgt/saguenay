@@ -42,7 +42,7 @@ export const AuroraHero = () => {
     >
       <div className="relative z-10 flex flex-col items-center">
         <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
-        <FontAwesomeIcon icon={faCircle} fade style={{ fontSize: "15px", color: "#ff0000" }}/><span className="text-red-600 text-base font-bold">&nbsp;&nbsp;Live</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;42% Development progress
+        <FontAwesomeIcon icon={faCircle} fade style={{ fontSize: "15px", color: "#ff0000" }}/><span className="text-red-600 text-base font-bold">&nbsp;&nbsp;Live</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;44% Development progress
         </span>
         <h1 className="ahsing max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight">
           Join the waitlist

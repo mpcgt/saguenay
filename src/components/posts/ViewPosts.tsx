@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../api/supabase";
-import {
-  faBookmark,
-  faCircle,
-  faCircleCheck,
-  faComment,
-  faHeart,
-  faShareFromSquare,
-} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 interface Post {
   id: number;
@@ -49,7 +42,6 @@ const ViewPosts = () => {
         setPosts(postsData as Post[]);
         setUsers(usersData as User[]);
       }
-
       setLoading(false);
     };
 
@@ -60,48 +52,54 @@ const ViewPosts = () => {
     {
       title: "#Saguenay",
       category: "Technology",
-      tweets: "125K Tweets",
+      posts: "∞ Posts",
     },
     {
       title: "#France",
       category: "Country",
-      tweets: "89K Tweets",
+      posts: "∞ Posts",
     },
     {
       title: "#GitHub",
       category: "Programming",
-      tweets: "45K Tweets",
+      posts: "∞ Posts",
     },
     {
       title: "#Music",
       category: "Activity",
-      tweets: "32K Tweets",
+      posts: "∞ Posts",
     },
     {
       title: "#NFL",
       category: "Sports",
-      tweets: "230K Tweets",
+      posts: "∞ Posts",
     },
   ];
 
   const findUserName = (userId: number) => {
     const user = users.find((user) => user.id === userId);
-    return user ? user.name : "Unknown User";
+    return user ? user.name : "Saguenay";
   };
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-full text-white bg-black mt-16">
-        <h1 className="text-3xl font-bold mt-5 mb-4">
-          Publications in real time&nbsp;&nbsp;
-          <FontAwesomeIcon
-            icon={faCircle}
-            fade
-            style={{ fontSize: "20px", color: "#ff0000" }}
+      <div className="min-h-screen bg-black text-white p-4">
+      <div className="max-w-xl mx-auto bg-zinc-900 border border-zinc-800 mb-4 rounded-2xl mt-20">
+        <div className="flex items-center gap-2 p-4">
+          <div className="w-8 h-8 bg-zinc-700 rounded-full"></div>
+          <input
+            type="text"
+            placeholder="What's new?"
+            className="flex-1 bg-transparent border-none text-white placeholder-zinc-500 focus:outline-none"
           />
-          <span className="text-red-600 text-2xl">&nbsp;Live</span>
-        </h1>
-        {loading ? (
+          <button className="px-4 py-2 bg-zinc-800 hover:border-transparent hover:bg-zinc-600 hover:transition-all text-white rounded-2xl transition-colors">
+            Post
+          </button>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center justify-center h-full text-white bg-black mt-16">
+      {loading ? (
           <svg
             aria-hidden="true"
             className="inline w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-indigo-600"
@@ -121,44 +119,62 @@ const ViewPosts = () => {
         ) : posts.length === 0 ? (
           <p>No posts available</p>
         ) : (
-          <ul className=" w-full max-w-lg">
+          <ul className="w-full max-w-lg bg-zinc-900 rounded-2xl">
             {posts.map((post) => (
-              <li key={post.id} className="border border-gray-700 p-4 ">
-                <h2 className="text-sm text-gray-400">
-                  {findUserName(post.user_name)}
-                </h2>
-                <hr className="w-56 mt-3 mb-3 border-gray-600" />
-                <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-                <p>{post.content}</p>
-                <p className="text-sm text-gray-400 mt-2">
-                  {new Date(post.created_at).toLocaleString()}
-                </p>
-                <div className="flex justify-between border-t border-gray-600 mt-3">
-                  <FontAwesomeIcon
-                    icon={faHeart}
-                    className="m-3 text-lg text-gray-500 hover:text-red-500 cursor-pointer transition-all"
-                  />
-                  <FontAwesomeIcon
-                    icon={faComment}
-                    className="m-3 text-lg text-gray-500 hover:text-blue-400 cursor-pointer transition-all"
-                  />
-                  <FontAwesomeIcon
-                    icon={faShareFromSquare}
-                    className="m-3 text-lg text-gray-500 hover:text-green-300 cursor-pointer transition-all"
-                  />
-                  <FontAwesomeIcon
-                    icon={faBookmark}
-                    className="m-3 text-lg text-gray-500 hover:text-indigo-400 cursor-pointer transition-all"
-                  />
+              <li key={post.id} className="border-b border-zinc-800 last:border-b-0">
+                <div className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-zinc-700 rounded-full"></div>
+                      <div>
+                        <p className="text-sm font-medium">{findUserName(post.user_name)}</p>
+                        <p className="text-xs text-zinc-500">{new Date(post.created_at).toLocaleString()}</p>
+                      </div>
+                    </div>
+                    <button className="text-zinc-500 hover:text-white hover:border-transparent hover:bg-zinc-600 hover:transition-all">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <h2 className="text-xl font-bold my-2">{post.title}</h2>
+                  <p className="text-zinc-300">{post.content}</p>
+                  <div className="flex items-center justify-between mt-4">
+                    <button className="flex items-center gap-1 text-zinc-500 hover:text-red-500 hover:border-transparent transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm">Like</span>
+                    </button>
+                    <button className="flex items-center gap-1 text-zinc-500 hover:text-blue-500 hover:border-transparent transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm">Comment</span>
+                    </button>
+                    <button className="flex items-center gap-1 text-zinc-500 hover:text-green-500 hover:border-transparent transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+                      </svg>
+                      <span className="text-sm">Share</span>
+                    </button>
+                    <button className="flex items-center gap-1 text-zinc-500 hover:text-purple-500 hover:border-transparent transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                      </svg>
+                      <span className="text-sm">Save</span>
+                    </button>
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
         )}
       </div>
+    </div>
 
       <div className="fixed top-20 right-10 justify-end text-white hidden lg:block ">
-        <div className="bg-gradient-to-br from-gray-700 via-gray-900 to-black text-white p-4 rounded-2xl w-80">
+        <div className="bg-zinc-900 text-white p-4 rounded-2xl w-80">
           <h2 className="text-lg font-semibold mb-2">You might like</h2>
           <hr className="border-gray-600 w-32 mb-4" />
           <ul className="space-y-4">
@@ -181,20 +197,20 @@ const ViewPosts = () => {
                     </p>
                   </div>
                 </div>
-                <button className="px-4 py-1 border border-white rounded-full text-white hover:bg-gray-600 hover:text-white hover:border-indigo-600 transition-colors">
+                <button className="px-4 py-1 border border-white rounded-full text-white hover:bg-gray-600 hover:text-white hover:border-transparent transition-colors">
                   Follow
                 </button>
               </li>
             ))}
           </ul>
-          <button className="bg-gray-800 text-indigo-400 mt-4 text-sm">
+          <button className="bg-zinc-800 text-indigo-400 hover:border-transparent mt-4 text-sm">
             Show more
           </button>
         </div>
       </div>
 
       <div className="fixed top-80 right-10 justify-end text-white hidden lg:block">
-        <div className="bg-gradient-to-tl from-gray-700 via-gray-900 to-black text-white p-4 rounded-2xl w-80">
+        <div className="bg-zinc-900 text-white p-4 rounded-2xl w-80">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-xl font-bold">Trends for you</h2>
           </div>
@@ -202,17 +218,16 @@ const ViewPosts = () => {
           <ul className="space-y-4">
             {trends.map((trend, index) => (
               <li
-                key={index}
-                className="cursor-pointer hover:bg-gray-800 p-2 rounded"
+              key={index}
+              className="cursor-pointer hover:bg-zinc-800 p-2 rounded"
               >
                 <div className="text-sm text-gray-400">{trend.category}</div>
                 <div className="font-bold">{trend.title}</div>
-                <div className="text-sm text-gray-400">{trend.tweets}</div>
-                <hr className="border-gray-600" />
+                <div className="text-sm text-gray-400">{trend.posts}</div>
               </li>
             ))}
           </ul>
-          <button className="bg-gray-800 text-indigo-400 mt-4 text-sm">
+          <button className="bg-zinc-800 text-indigo-400 hover:border-transparent mt-4 text-sm">
             Show more
           </button>
         </div>

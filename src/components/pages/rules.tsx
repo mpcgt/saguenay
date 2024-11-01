@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom"
-import Logo from "../../assets/images/logo/saguenay_white_letters.png"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { Link } from "react-router-dom";
+import Logo from "../../assets/images/logo/saguenay_white_letters.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 export default function Rules() {
   return (
-    <div className="min-h-screen bg-[#1F2937] text-white p-6 font-sans">
-      <div className="max-w-2xl mx-auto space-y-8 bg-[#111827] p-8 rounded-2xl shadow-xl">
+    <div className="min-h-screen bg-zinc-900 text-white p-6 font-sans">
+      <div className="max-w-2xl mx-auto space-y-8 bg-zinc-800 p-8 rounded-2xl shadow-xl">
         {/* Logo */}
         <div className="flex justify-center mb-12">
           <img
             src={Logo}
-            alt="Mastodon"
+            alt="Saguenay"
             width={180}
             height={40}
             className="h-10 w-auto"
@@ -33,7 +33,9 @@ export default function Rules() {
         <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold mb-2">Some ground rules.</h1>
           <p className="text-gray-400 mb-6">
-            These are set and enforced by the mastodon.social moderators.
+            Welcome to Saguenay, a space where community members can connect,
+            share, and exchange. To maintain a respectful and enjoyable
+            environment for everyone, we ask you to follow this rules.
           </p>
         </div>
 
@@ -58,58 +60,73 @@ export default function Rules() {
         <div className="space-y-4 mt-12">
           <button className="w-full bg-[#818CF8] hover:bg-[#6366F1] text-white py-3 rounded-full transition-colors duration-300">
             <Link to="/waitlist" className="text-white hover:text-white">
-            Accept
+              Accept
             </Link>
           </button>
-          <button
-            className="w-full border-gray-600 text-white hover:bg-gray-700 rounded-full transition-colors duration-300"
-          >
+          <button className="w-full border-gray-600 text-white hover:bg-gray-700 rounded-full transition-colors duration-300">
             <Link to="/home" className="text-white hover:text-white">
-            Back
+              Back
             </Link>
           </button>
         </div>
 
         {/* Footer Links */}
         <div className="flex justify-center gap-4 text-sm text-[#818CF8] mt-8">
-          <Link to="https://github.com/mpcgt/saguenay" target="_blank" className="hover:underline">
-            <FontAwesomeIcon icon={faGithub} style={{color: "#ffffff", fontSize: "30px"}} />
+          <Link
+            to="https://github.com/mpcgt/saguenay"
+            target="_blank"
+            className="hover:underline"
+          >
+            <FontAwesomeIcon
+              icon={faGithub}
+              style={{ color: "#ffffff", fontSize: "30px" }}
+            />
           </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 const rules = [
   {
-    title: "Sexually explicit or violent media must be marked as sensitive or with a content warning",
+    title: "Mutual Respect",
     description:
-      "Sexually explicit or violent media must be labeled as sensitive or accompanied by a content warning. This includes content that is particularly provocative, even if it does not depict specific body parts, as well as dead bodies, bloody injuries, and other graphic violence. Particularly obscene content may be completely prohibited. Profile pictures and header images must not contain sexually explicit or violent media.",
+      "Treat other members with respect, courtesy, and kindness. Insults, personal attacks, harassment, or discrimination of any kind (racial, sexual, religious, etc.) will not be tolerated. Be open to opinions and perspectives different from your own.",
   },
   {
-    title: "No racism, sexism, homophobia, transphobia, ableism, xenophobia, or casteism.",
+    title: "Inappropriate Content",
     description:
-      "No form of racism, sexism, homophobia, transphobia, ableism, xenophobia, or casteism is tolerated. Transphobic behavior, such as intentional misgendering and deadnaming, is strictly prohibited. The promotion of 'conversion therapy' is also banned. Criticism of governments and religions is permitted unless used as a pretext for discrimination.",
+      "Offensive, violent, hateful, or explicitly sexual content is strictly prohibited. Do not post content that violates the law or infringes on the rights of others, including copyright, privacy, and image rights.",
   },
   {
-    title: "No incitement of violence or promotion of violent ideologies",
+    title: "Privacy Protection",
     description:
-      "No incitement to violence or promotion of violent ideologies is allowed. Calling for the assassination, murder, or physical attack of individuals or groups is strictly forbidden. Supporting violent groups or events is prohibited.",
+      "Respect the privacy of other members. Do not share personal information about others without their explicit consent. Be cautious when sharing your own personal information. Saguenay is not responsible for any consequences related to the disclosure of your information.",
   },
   {
-    title: "No harassment, block evasion, dogpiling, or doxxing of others",
+    title: "Constructive Behavior",
     description:
-      "Harassment, block evasion, dogpiling, and doxxing of others are not allowed. Repeated attempts to communicate with users who have blocked you or creating accounts solely to harass or insult individuals are strictly prohibited. Coordinated activities to attack other users are not allowed. Posting private personal information about others is prohibited.",
+      "Encourage constructive and enriching discussions. Avoid toxic debates and provocations. If you disagree with someone, express yourself calmly and respectfully.",
   },
   {
-    title: "Do not share information widely-known to be false and misleading",
+    title: "Spam and Advertising",
     description:
-      "Do not share information widely known to be false or misleading. Posting false and misleading information, as well as links from low-quality sources, is prohibited, especially if likely to mislead or confuse others or endanger their safety.",
+      "Spam, unsolicited advertising, or any form of commercial promotion without explicit permission from the administrators is prohibited. Do not post content or links aiming to redirect users to other sites for commercial purposes without authorization.",
   },
   {
-    title: "Content created by others must be attributed, and use of generative AI must be disclosed",
+    title: "Safety and Reporting",
     description:
-      "Content created by others must be attributed, and the use of generative AI must be disclosed. Content created by others must clearly reference the author, creator, or source. Accounts must not solely post AI-generated content.",
+      "If you see inappropriate behavior, you have the option to report it to the network administrators. Any severe or repeated violation of this rule may result in penalties, including a ban from the network.",
   },
-]
+  {
+    title: "Modifications to the Code of Conduct",
+    description:
+      "Saguenay reserves the right to modify or adjust this rules at any time to meet the community's needs. Any changes will be communicated to members.",
+  },
+  {
+    title: "Language",
+    description:
+      "Use appropriate and respectful language at all times. Vulgar or inappropriate remarks are not accepted. By participating in Saguenay, you agree to abide by this code of conduct. Together, we can build a safe and inclusive community where everyone feels comfortable sharing and interacting.",
+  },
+];

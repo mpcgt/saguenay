@@ -7,24 +7,24 @@ export default function About() {
   }, []);
   return (
     <>
-      <div className="min-h-screen bg-indigo-300 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-zinc-900 py-12 px-4 sm:px-6 lg:px-8">
         <NavigationBar />
         <div className="max-w-7xl mx-auto">
-          <div className="bg-white shadow-xl rounded-3xl overflow-hidden mt-10">
-            <h1 className="text-5xl font-bold text-center text-black mt-10 mb-6 ahsing">
+          <div className="bg-zinc-800 shadow-xl rounded-3xl overflow-hidden mt-10">
+            <h1 className="text-5xl font-bold text-center text-white mt-10 mb-6 ahsing">
               Digital Freedom
             </h1>
-            <h2 className="text-2xl text-center text-black mb-12">
+            <h2 className="text-2xl text-center text-white mb-12">
               A social network that respects your privacy and focuses on
               well-being.
             </h2>
-            <hr className="border-black" />
+            <hr className="border-zinc-500" />
             <div className="p-8">
-              <h2 className="text-3xl text-black font-bold italic">
+              <h2 className="text-3xl text-white font-bold italic">
                 What is <span className="ahsing">Saguenay</span> ?
               </h2>
               <br />
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              <p className="text-lg text-white leading-relaxed mb-8">
                 Saguenay is a social network designed to respect your privacy
                 and promote the well-being of its users. Unlike many existing
                 platforms, we don't monitor your activity to influence you or
@@ -36,7 +36,7 @@ export default function About() {
                 monitored nor manipulated for commercial gain.
                 <br />
                 <br />
-                <h2 className="text-2xl font-bold text-black italic">
+                <h2 className="text-2xl font-bold text-white italic">
                   User well-being: a priority 🎯
                 </h2>
                 <br />
@@ -52,7 +52,7 @@ export default function About() {
                 devices, and we never share your personal information.
                 <br />
                 <br />
-                <h2 className="text-2xl font-bold text-black italic">
+                <h2 className="text-2xl font-bold text-white italic">
                   Safety and Moderation: A Rigorous Approach 🔒
                 </h2>
                 <br />
@@ -67,7 +67,7 @@ export default function About() {
                 data being exploited.
                 <br />
                 <br />{" "}
-                <h2 className="text-2xl font-bold text-black italic">
+                <h2 className="text-2xl font-bold text-white italic">
                   Open-Source and Transparency: A Committed Community ✊🏻
                 </h2>
                 <br />
@@ -84,7 +84,7 @@ export default function About() {
                 layer of privacy.
                 <br />
                 <br />
-                <h2 className="text-2xl font-bold text-black italic">
+                <h2 className="text-2xl font-bold text-white italic">
                   An Ethical Model: Putting the User First ✨
                 </h2>
                 <br />
@@ -101,11 +101,11 @@ export default function About() {
           </div>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-2 items-center gap-4 lg:gap-8">
             <a
-              className="group flex flex-col h-full text-center rounded-lg hover:bg-indigo-200 transition-all focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10"
+              className="group flex flex-col h-full text-center hover:bg-zinc-800 rounded-2xl transition-all focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10"
               href="#"
             >
               <svg
-                className="size-9 text-gray-800 mx-auto dark:text-neutral-200"
+                className="size-9 text-white mx-auto dark:text-neutral-200"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -121,10 +121,10 @@ export default function About() {
                 <path d="M12 17h.01" />
               </svg>
               <div className="mt-5">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                <h3 className="text-lg font-semibold text-white dark:text-neutral-200">
                   Issues
                 </h3>
-                <p className="mt-1 text-gray-500 dark:text-neutral-500">
+                <p className="mt-1 text-white dark:text-neutral-500">
                   If you have a problem in Saguenay, please submit a ticket so
                   we can help you.
                 </p>
@@ -151,11 +151,11 @@ export default function About() {
             </a>
 
             <a
-              className="group flex flex-col h-full text-center rounded-lg hover:bg-indigo-200 transition-all focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10"
+              className="group flex flex-col h-full text-center hover:bg-zinc-800 rounded-2xl transition-all focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10"
               href="#"
             >
               <svg
-                className="size-9 text-gray-800 mx-auto dark:text-neutral-200"
+                className="size-9 text-white mx-auto dark:text-neutral-200"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -170,10 +170,10 @@ export default function About() {
                 <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
               </svg>
               <div className="mt-5">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                <h3 className="text-lg font-semibold text-white dark:text-neutral-200">
                   Email
                 </h3>
-                <p className="mt-1 text-gray-500 dark:text-neutral-500">
+                <p className="mt-1 text-white dark:text-neutral-500">
                   We're here to help, so don't hesitate to contact us by e-mail
                   in Saguenay.
                 </p>
