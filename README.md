@@ -17,7 +17,7 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 * **Saved:** *Displays content that the user has **tagged or saved** for **future reference**. This can **include publications, links or articles**.
 * **Messages:** Keeps you up **to date on Saguenay news**. It displays **relevant news**, **updates** or **events taking place**, to keep users **up to date** with what's going on around them.
 * **Profile:** *Directs to the **user's personal profile**. This page displays **user information** such as **name**, **photo**, **bio**, **publications**, and **other personal information**.
-* **Settings:** Allows you to **modify application** or **user account settings****. This typically includes privacy preferences***, **notifications***, and **other personalization options**.
+* **Settings:** Allows you to **modify application** or **user account settings***. This typically includes **privacy preferences***, **notifications***, and **other personalization options**.
 * **About:** Provides information about the **site**, such as its **mission**. This is often a place **to learn more** about the platform's **goals**.
 * **Help:** **Offers help** and **support to users**. This may include **FAQs**, **support articles**, or **ways to contact technical support to solve problems**.
 
@@ -33,9 +33,12 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 ## 💻 **Technologies used**
 * **Front-end:** [React](https://react.dev), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/)
 * **Back-end:** [Node.js](https://nodejs.org) & [Vite](https://vite.dev/)
-* **Database:** [Supabase](https://supabase.com/), [Firebase](https://firebase.google.com/)
+* **Database:** [Supabase](https://supabase.com/) & [Firebase](https://firebase.google.com/)
 * **Hosting:** [Vercel](https://vercel.com)
 
+## ⚡ **Performance**
+
+<img src="https://github.com/mpcgt/saguenay/blob/main/src/assets/images/perf.png?raw=true" alt="Performance" />
 
 ## ⌨️ **Clone**
 Clone it for local development:
@@ -58,3 +61,4 @@ $ npm run dev
 
 ## 📨 **Contact**
 * **GitHub** : [GitHub](https://github.com/mpcgt/saguenay/discussions/new/choose)
+* **Email** : [Email](mailto:sgn.ntwk@gmail.com)
