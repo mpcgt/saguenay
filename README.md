@@ -4,6 +4,8 @@
 <img src="https://github.com/mpcgt/saguenay/blob/main/src/assets/images/image_readme.png?raw=true" alt="Saguenay" />
 
 # Your network, your world. 🌍
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmpcgt%2Fsaguenay.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmpcgt%2Fsaguenay?ref=badge_shield)
+
 The **Saguenay social network** is a **dynamic platform** that enables users to **create and join groups** based on their **varied interests**, such as **sports**, **art**, the **environment** and **much more**. By bringing together people who share the same **passions**, the network fosters **exchange** and **interaction** within the **community**.
 </div>
 
@@ -58,3 +60,7 @@ $ npm run dev
 
 ## 📨 **Contact**
 * **GitHub** : [GitHub](https://github.com/mpcgt/saguenay/discussions/new/choose)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmpcgt%2Fsaguenay.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmpcgt%2Fsaguenay?ref=badge_large)
