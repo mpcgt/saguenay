@@ -104,7 +104,7 @@ export default function NavigationBar() {
               </Link>
 
               <div>
-                <Link to="/waitlist">
+                <Link to="/rules">
                   <span className="group inline-flex items-center gap-x-2 py-2 px-3 bg-indigo-500 font-medium text-sm text-white rounded-full focus:outline-none">
                     {t("navbarLogin")}
                   </span>

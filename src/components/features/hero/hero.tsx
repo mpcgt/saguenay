@@ -16,7 +16,7 @@ export default function Hero() {
 
       <div className="bg-black p-4 md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
-          <div className="md:col-span-2 lg:col-span-3 bg-indigo-500 p-6 rounded-lg shadow-md flex flex-col justify-between order-1">
+          <div className="md:col-span-2 lg:col-span-3 bg-gradient-to-bl from-gray-700 via-gray-900 to-black p-6 rounded-2xl shadow-md flex flex-col justify-between order-1">
             <div>
               <p className="text-white text-sm mb-2">www.saguenay.vercel.app</p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 ahsing">
@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
 
           <div className="md:row-span-2 flex flex-col order-2">
-            <div className="bg-indigo-400 p-6 rounded-lg shadow-md flex-1 mb-4">
+            <div className="bg-gradient-to-br from-gray-700 via-gray-900 to-black p-6 rounded-2xl shadow-md flex-1 mb-4">
               <h2 className="text-2xl font-bold text-white mb-4">
                 No advertising ✨
               </h2>
@@ -41,7 +41,7 @@ export default function Hero() {
               </p>
             </div>
 
-            <div className="bg-indigo-700 p-6 rounded-lg shadow-md flex-1">
+            <div className="bg-gradient-to-l from-gray-700 via-gray-900 to-black p-6 rounded-2xl shadow-md flex-1">
               <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
                 Limited screen time <Clock className="ml-2 w-6 h-6" />
               </h2>
@@ -53,7 +53,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="bg-indigo-500 p-6 rounded-lg shadow-md order-3 md:order-4">
+          <div className="bg-gradient-to-t from-gray-700 via-gray-900 to-black rounded-2xl p-6  shadow-md order-3 md:order-4">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-2xl font-bold text-white">10+</h2>
               <Users className="text-white w-6 h-6" />
@@ -69,7 +69,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="bg-indigo-600 p-6 rounded-lg shadow-md order-3 md:order-4">
+          <div className="bg-gradient-to-tl from-gray-700 via-gray-900 to-black p-6 rounded-2xl shadow-md order-3 md:order-4">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-2xl font-bold text-white">Open source</h2>
               <Github className="text-white w-6 h-6" />
@@ -82,7 +82,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="bg-indigo-400 p-6 rounded-lg shadow-md order-4 md:order-3">
+          <div className="bg-gradient-to-tr from-gray-700 via-gray-900 to-black p-6 rounded-2xl shadow-md order-4 md:order-3">
             <h2 className="text-2xl font-bold text-white mb-4">
               No algorithm, so no control over your content 👀
             </h2>

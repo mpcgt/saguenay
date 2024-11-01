@@ -26,6 +26,7 @@ import { initReactI18next } from 'react-i18next'
 import enTranslation from './locales/en/translation.json'
 import frTranslation from './locales/fr/traduction.json'
 import esTranslation from './locales/es/traducción.json'
+import Rules from './components/pages/rules'
 
 i18next.use(initReactI18next).init({
   resources: {
@@ -91,6 +92,7 @@ export default function App() {
             <Route path="/photography" element={<PhotographyAbout />} />
             <Route path="/about" element={<About />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/rules" element={<Rules />} />
             <Route path="/waitlist" element={<Waitlist />} />
             <Route path="/tictactoe" element={<TicTacToe />} />
             <Route path="/404" element={<Error />} />

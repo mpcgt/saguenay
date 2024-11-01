@@ -56,6 +56,34 @@ const ViewPosts = () => {
     fetchData();
   }, []);
 
+  const trends = [
+    {
+      title: "#Saguenay",
+      category: "Technology",
+      tweets: "125K Tweets",
+    },
+    {
+      title: "#France",
+      category: "Country",
+      tweets: "89K Tweets",
+    },
+    {
+      title: "#GitHub",
+      category: "Programming",
+      tweets: "45K Tweets",
+    },
+    {
+      title: "#Music",
+      category: "Activity",
+      tweets: "32K Tweets",
+    },
+    {
+      title: "#NFL",
+      category: "Sports",
+      tweets: "230K Tweets",
+    },
+  ];
+
   const findUserName = (userId: number) => {
     const user = users.find((user) => user.id === userId);
     return user ? user.name : "Unknown User";
@@ -95,10 +123,7 @@ const ViewPosts = () => {
         ) : (
           <ul className=" w-full max-w-lg">
             {posts.map((post) => (
-              <li
-                key={post.id}
-                className="border border-gray-700 p-4 "
-              >
+              <li key={post.id} className="border border-gray-700 p-4 ">
                 <h2 className="text-sm text-gray-400">
                   {findUserName(post.user_name)}
                 </h2>
@@ -131,8 +156,9 @@ const ViewPosts = () => {
           </ul>
         )}
       </div>
+
       <div className="fixed top-20 right-10 justify-end text-white hidden lg:block ">
-        <div className="bg-gray-900 text-white p-4 rounded-2xl max-w-xs">
+        <div className="bg-gradient-to-br from-gray-700 via-gray-900 to-black text-white p-4 rounded-2xl w-80">
           <h2 className="text-lg font-semibold mb-2">You might like</h2>
           <hr className="border-gray-600 w-32 mb-4" />
           <ul className="space-y-4">
@@ -143,7 +169,7 @@ const ViewPosts = () => {
                     {suggestion.name[0]}
                   </div>
                   <div>
-                    <p className="font-semibold">
+                    <p className="cursor-pointer font-semibold">
                       {suggestion.name}{" "}
                       <FontAwesomeIcon
                         icon={faCircleCheck}
@@ -161,7 +187,34 @@ const ViewPosts = () => {
               </li>
             ))}
           </ul>
-          <button className="bg-gray-800 text-indigo-400 mt-4 text-sm">Show more</button>
+          <button className="bg-gray-800 text-indigo-400 mt-4 text-sm">
+            Show more
+          </button>
+        </div>
+      </div>
+
+      <div className="fixed top-80 right-10 justify-end text-white hidden lg:block">
+        <div className="bg-gradient-to-tl from-gray-700 via-gray-900 to-black text-white p-4 rounded-2xl w-80">
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-xl font-bold">Trends for you</h2>
+          </div>
+            <hr className="border-gray-600 w-36 mb-4" />
+          <ul className="space-y-4">
+            {trends.map((trend, index) => (
+              <li
+                key={index}
+                className="cursor-pointer hover:bg-gray-800 p-2 rounded"
+              >
+                <div className="text-sm text-gray-400">{trend.category}</div>
+                <div className="font-bold">{trend.title}</div>
+                <div className="text-sm text-gray-400">{trend.tweets}</div>
+                <hr className="border-gray-600" />
+              </li>
+            ))}
+          </ul>
+          <button className="bg-gray-800 text-indigo-400 mt-4 text-sm">
+            Show more
+          </button>
         </div>
       </div>
     </>
