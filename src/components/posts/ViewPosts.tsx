@@ -224,7 +224,7 @@ const ViewPosts = () => {
       </AnimatePresence>
         </div>
 
-      <div className="flex flex-col items-center justify-center h-full text-white bg-black mt-8">
+      <div className="flex flex-col items-center justify-center h-full text-white bg-black mt-">
       {loading ? (
           <svg
             aria-hidden="true"
