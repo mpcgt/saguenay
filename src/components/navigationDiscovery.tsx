@@ -272,7 +272,7 @@ export default function Navigation() {
                 </li>
 
                 <li>
-                  <Link to="/help">
+                  <Link to="https://help.saguenay.vercel.app/" target="_blank">
                     <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-zinc-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
                       <CircleHelp />
                       Help
@@ -293,7 +293,7 @@ export default function Navigation() {
           </div>
           <div className="space-x-2 text-xs ml-3 mr-3 mb-3">
             <Link
-              to="/404"
+              to="/development"
               className="text-gray-500 hover:text-gray-700 transition-all"
             >
               Invite people •
@@ -311,16 +311,31 @@ export default function Navigation() {
               Code of Conduct •
             </Link>
             <Link
-              to="/404"
+              to="/development"
               className="text-gray-500 hover:text-gray-700 transition-all"
             >
               Confidentality •
             </Link>
             <Link
-              to="/404"
+              to="https://help.saguenay.vercel.app/docs/intro"
               className="text-gray-500 hover:text-gray-700 transition-all"
+              target="_blank"
             >
               Documentation •
+            </Link>
+            <Link
+              to="https://help.saguenay.vercel.app/docs/security"
+              className="text-gray-500 hover:text-gray-700 transition-all"
+              target="_blank"
+            >
+              Security •
+            </Link>
+            <Link
+              to="https://help.saguenay.vercel.app/blog"
+              className="text-gray-500 hover:text-gray-700 transition-all"
+              target="_blank"
+            >
+              Blog •
             </Link>
             <Link
               to="https://github.com/mpcgt/saguenay"
@@ -332,7 +347,7 @@ export default function Navigation() {
           </div>
           <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">
             Saguenay is an open-source social network, with no ads and no weird
-            trackers. <i>(v.0.2.23)</i>
+            trackers. <i>(v.0.2.25)</i>
           </p>
           <a
             href="https://github.com/mpcgt/saguenay"

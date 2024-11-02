@@ -69,7 +69,7 @@ export default function Notification() {
           </div>
           <ul className="divide-y divide-gray-200">
             {notifications.map((notification) => (
-              <li key={notification.id} className={`p-4 sm:p-6 ${notification.read ? 'bg-gray-900' : 'bg-black'}`}>
+              <li key={notification.id} className={`p-4 sm:p-6 ${notification.read ? 'bg-gray-900' : 'bg-zinc-900'}`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <NotificationIcon type={notification.type} />
@@ -81,14 +81,14 @@ export default function Notification() {
                     {!notification.read && (
                       <button
                         onClick={() => markAsRead(notification.id)}
-                        className="mr-2 text-sm text-white hover:text-white"
+                        className="mr-2 text-sm bg-zinc-800 text-white hover:text-white"
                       >
-                        Marquer comme lu
+                        Mark as read
                       </button>
                     )}
                     <button
                       onClick={() => removeNotification(notification.id)}
-                      className="text-white hover:text-white"
+                      className="bg-zinc-800 text-white hover:text-white"
                     >
                       <X className="h-5 w-5" />
                     </button>
@@ -98,7 +98,7 @@ export default function Notification() {
             ))}
           </ul>
           {notifications.length === 0 && (
-            <p className="text-center py-6 text-white">Aucune notification</p>
+            <p className="text-center py-6 text-white">No notification</p>
           )}
         </div>
       </div>

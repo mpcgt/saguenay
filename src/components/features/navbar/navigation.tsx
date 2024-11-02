@@ -9,7 +9,7 @@ export default function NavigationBar() {
 
   const playSound = () => {
     const audio = new Audio(Bell);
-    audio.volume = 0.3;
+    audio.volume = 0.01;
     audio.play();
   };
 

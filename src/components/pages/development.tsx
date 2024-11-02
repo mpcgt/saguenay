@@ -1,4 +1,4 @@
-import { Github } from "lucide-react"
+import { Github, HeartHandshake } from "lucide-react"
 import { Link } from "react-router-dom"
 import NavigationBar from "../features/navbar/navigation"
 
@@ -19,10 +19,18 @@ export default function Development() {
         <Link
           to="https://github.com/mpcgt/saguenay"
           target="_blank"
-          className="inline-flex items-center justify-center rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-gradient-to-r text-white from-indigo-400 to-red-600 hover:text-white h-12 px-8 py-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          className="inline-flex items-center justify-center rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-gradient-to-r text-white from-indigo-400 to-red-600 hover:text-white h-12 mr-5 px-8 py-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
         >
           <Github className="mr-2 h-5 w-5" />
           Explore on GitHub
+        </Link>
+        <Link
+          to="https://help.saguenay.vercel.app"
+          target="_blank"
+          className="inline-flex items-center justify-center rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-gradient-to-r text-white from-indigo-400 to-red-600 hover:text-white h-12 px-8 py-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          <HeartHandshake className="mr-2 h-5 w-5" />
+          I need help
         </Link>
       </div>
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
