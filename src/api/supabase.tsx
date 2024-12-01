@@ -6,9 +6,10 @@ function isString(value: string | undefined): value is string {
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseServiceRole = import.meta.env.VITE_SUPABASE_SERVICE_ROLE;
 
 
-if (!isString(supabaseUrl) || !isString(supabaseAnonKey)) {
+if (!isString(supabaseUrl) || !isString(supabaseAnonKey) || !isString(supabaseServiceRole)) {
     throw new Error('Supabase URL or Anon Key is missing or invalid');
 }
 

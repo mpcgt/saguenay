@@ -1,6 +1,7 @@
 "use client";
 
-import { faFeather, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useState, useRef, useEffect } from 'react'
+import { faFeather } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Bookmark,
@@ -11,12 +12,77 @@ import {
   Info,
   Mail,
   Settings,
-  User,
   Users,
+  ChevronDown,
+  LogOut,
+  UserRound,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
+import { supabase } from "../api/supabase";
+import type { User } from "@supabase/supabase-js";
 
 export default function Navigation() {
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState<User | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    async function checkUser() {
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError || !sessionData.session) {
+        console.log("No active session or error fetching session");
+        setUser(null);
+        return;
+      }
+
+      const { data, error } = await supabase.auth.getUser();
+      if (error) {
+        console.error("Error fetching user:", error.message);
+      } else {
+        setUser(data?.user ?? null);
+      }
+    }
+
+    checkUser();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session ? session.user : null);
+    });
+
+    return () => {
+      authListener?.subscription.unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+  async function signOut() {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error("Error signing out:", error.message);
+    } else {
+      setUser(null);
+    }
+  }
+
+  if (user) {
+    const avatarUrl = user.user_metadata?.avatar_url || "https://avatars.githubusercontent.com/u/";
+    const fullName = user.user_metadata?.full_name || "Name";
+    // const providerId = user.user_metadata?.provider_id || "151950243";
   return (
     <>
       <header className="fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-black border-b border-gray-700 text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
@@ -26,7 +92,7 @@ export default function Navigation() {
               className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
               href="#"
               aria-label="Saguenay"
-            >
+              >
               <h1 className="ahsing text-white text-3xl">Saguenay</h1>
             </a>
           </div>
@@ -46,7 +112,7 @@ export default function Navigation() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                  >
+                    >
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.3-4.3" />
                   </svg>
@@ -55,13 +121,13 @@ export default function Navigation() {
                   type="text"
                   className="py-2 ps-10 pe-16 block w-full bg-black border-gray-700 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600"
                   placeholder="Search (Coming soon!)"
-                />
+                  />
                 <div className="hidden absolute inset-y-0 end-0 items-center pointer-events-none z-20 pe-1">
                   <button
                     type="button"
                     className="inline-flex shrink-0 justify-center items-center size-6 rounded-full text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
                     aria-label="Close"
-                  >
+                    >
                     <span className="sr-only">Close</span>
                     <svg
                       className="shrink-0 size-4"
@@ -152,18 +218,51 @@ export default function Navigation() {
                 </Link>
               </button>
 
-              <div className="hs-dropdown [--placement:bottom-right] relative inline-flex">
-                <button
-                  id="hs-dropdown-account"
-                  type="button"
-                  className="size-[38px] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-black text-white hover:bg-gray-900"
-                  aria-haspopup="menu"
-                  aria-expanded="false"
-                  aria-label="Dropdown"
-                >
-                  <FontAwesomeIcon icon={faUser} />
-                </button>
+              <div className="flex items-center justify-center bg-black">
+      <div className="relative" ref={dropdownRef}>
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full pr-4 pl-2 py-2 transition-colors duration-200"
+        >
+          <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center overflow-hidden">
+            <img src={avatarUrl} alt="Profile" className="h-full w-full object-cover" />
+          </div>
+          <span className="font-medium">{fullName}</span>
+          <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        </button>
+
+        {isOpen && (
+          <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5">
+            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+              <div className="px-4 py-2 text-sm text-gray-400">
+              {user.email}
               </div>
+              <a href="#" className="flex px-4 py-2 text-sm text-white hover:text-white hover:bg-gray-700 transition-colors duration-200">
+                <Mail className="mr-3 h-5 w-5 text-white hover:text-white" />
+                <Link to="/notification" className="text-white hover:text-white">
+                Inbox
+                </Link>
+              </a>
+              <a href="#" className="flex px-4 py-2 text-sm text-white hover:text-white hover:bg-gray-700 transition-colors duration-200">
+                <Settings className="mr-3 h-5 w-5 text-white hover:text-white" />
+                <Link to="/settings" className='text-white hover:text-white'>
+                Settings
+                </Link>
+              </a>
+              <a href="#" className="flex px-4 py-2 text-sm text-white hover:bg-gray-700 transition-colors duration-200">
+                <LogOut className="mr-3 h-5 w-5 text-red-500 hover:text-red-500" />
+                <Link to="#" className='text-red-500 hover:text-red-500' onClick={async () => {
+    await signOut();
+    navigate("/profile");
+}}>
+    Log out
+</Link>
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
             </div>
           </div>
         </nav>
@@ -245,9 +344,9 @@ export default function Navigation() {
                 </li>
 
                 <li>
-                  <Link to="/development">
+                  <Link to="/profile">
                     <span className="flex items-center gap-x-3.5 py-2 px-2.5 text-base hover:bg-zinc-900 rounded-xl transition-all text-white hover:text-white dark:bg-black">
-                      <User />
+                      <UserRound />
                       Profile
                     </span>
                   </Link>{" "}
@@ -301,7 +400,7 @@ export default function Navigation() {
             <Link
               to="/rules"
               className="text-gray-500 hover:text-gray-700 transition-all"
-            >
+              >
               Rules •
             </Link>
             <Link
@@ -313,51 +412,45 @@ export default function Navigation() {
             <Link
               to="/development"
               className="text-gray-500 hover:text-gray-700 transition-all"
-            >
+              >
               Confidentality •
             </Link>
             <Link
               to="https://help.saguenay.vercel.app/docs/intro"
               className="text-gray-500 hover:text-gray-700 transition-all"
               target="_blank"
-            >
+              >
               Documentation •
             </Link>
             <Link
               to="https://help.saguenay.vercel.app/docs/security"
               className="text-gray-500 hover:text-gray-700 transition-all"
               target="_blank"
-            >
+              >
               Security •
             </Link>
             <Link
               to="https://help.saguenay.vercel.app/blog"
               className="text-gray-500 hover:text-gray-700 transition-all"
               target="_blank"
-            >
+              >
               Blog •
             </Link>
             <Link
               to="https://github.com/mpcgt/saguenay"
               target="_blank"
               className="text-gray-500 hover:text-gray-700 transition-all"
-            >
-              GitHub repository
+              >
+              GitHub Repository
             </Link>
           </div>
           <p className="relative ml-3 mr-3 mb-2 font-bold text-xs text-gray-700">
             Saguenay is an open-source social network, with no ads and no weird
-            trackers. <i>(v.0.2.25)</i>
+            trackers. <i>(v.0.3.0)</i>
           </p>
-          <a
-            href="https://github.com/mpcgt/saguenay"
-            target="_blank"
-            className="relative ml-3 mr-3 mb-5 font-bold text-xs underline text-gray-700 hover:text-gray-800"
-          >
-            GitHub Repository
-          </a>
         </div>
       </div>
     </>
   );
+  }
 }
