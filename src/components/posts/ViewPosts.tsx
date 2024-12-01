@@ -53,7 +53,7 @@ const ViewPosts = () => {
             id: user.id,
             full_name: user.user_metadata?.full_name || "Unknown",
             email: user.email,
-            avatar_url: user.user_metadata?.avatar_url || "../../assets/images/others/unknown_avatar.png",
+            avatar_url: user.user_metadata?.avatar_url || "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true",
           });
         }
       });
@@ -91,7 +91,7 @@ const ViewPosts = () => {
           return {
             ...post,
             full_name: user ? user.full_name : "Unknown",
-            avatar_url: user?.avatar_url || "../../assets/images/others/unknown_avatar.png",
+            avatar_url: user?.avatar_url || "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true",
           };
         });
 
@@ -172,9 +172,9 @@ const ViewPosts = () => {
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-zinc-700 rounded-full">
                       <img
-              src={post.avatar_url || "../../assets/images/others/unknown_avatar.png"}
+              src={post.avatar_url || "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true"}
               alt="User Avatar"
-              className="avatar"
+              className="avatar rounded-2xl"
             />
                       </div>
                       <div>
