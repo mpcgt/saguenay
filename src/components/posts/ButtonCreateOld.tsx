@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import CreatePost from './CreatePost';
 
-// Définition des types pour les props du Modal
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -56,12 +55,10 @@ export default function CreateButton() {
         const centerX = left + width / 2
         const centerY = top + height / 2
         
-        // Calculate distance from cursor to button center
         const distanceX = clientX - centerX
         const distanceY = clientY - centerY
         const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY)
         
-        // Convert 5cm to pixels (assuming 96 DPI)
         const threshold = 5 * 37.7952755906
 
         if (distance < threshold) {
@@ -83,7 +80,6 @@ export default function CreateButton() {
 
   return (
     <>
-      {/* Div pour le bouton fixé */}
       <div className="fixed bottom-5 right-5">
         <motion.div
           ref={buttonRef}
@@ -92,7 +88,7 @@ export default function CreateButton() {
             x: x,
             y: y,
           }}
-          onClick={() => setIsModalOpen(true)} // Ouvre le modal au clic
+          onClick={() => setIsModalOpen(true)}
         >
           <motion.svg
             className="w-full h-full"

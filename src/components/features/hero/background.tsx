@@ -50,7 +50,7 @@ export const BackgroundHero = () => {
           <span className="text-red-600 text-base font-bold">
             &nbsp;&nbsp;Live
           </span>
-          &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;44% Development progress
+          &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;51% Development progress
         </span>
         <h1 className="ahsing max-w-3xl bg-gradient-to-br from-white to-gray-500 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight">
           Your network, <br /> your world.

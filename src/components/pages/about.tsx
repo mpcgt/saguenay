@@ -5,6 +5,7 @@ export default function About() {
   useEffect(() => {
     document.title = 'About - Saguenay';
   }, []);
+  
   return (
     <>
       <div className="min-h-screen bg-zinc-900 py-12 px-4 sm:px-6 lg:px-8">
@@ -34,12 +35,14 @@ export default function About() {
                 might capture your attention. Our users can enjoy an authentic
                 online experience, where their interactions are neither
                 monitored nor manipulated for commercial gain.
+                </p>
                 <br />
                 <br />
                 <h2 className="text-2xl font-bold text-white italic">
                   User well-being: a priority 🎯
                 </h2>
                 <br />
+                <p className="text-lg text-white leading-relaxed mb-8">
                 Saguenay goes further to encourage healthy and balanced use of
                 the platform. We've integrated a timer that alerts users when
                 they're spending too much time on the network, to help them
@@ -50,12 +53,14 @@ export default function About() {
                 with ads, nor is it sold to third parties. We take great care to
                 ensure that your privacy is protected: there are no tracking
                 devices, and we never share your personal information.
+                </p>
                 <br />
                 <br />
                 <h2 className="text-2xl font-bold text-white italic">
                   Safety and Moderation: A Rigorous Approach 🔒
                 </h2>
                 <br />
+                <p className="text-lg text-white leading-relaxed mb-8">
                 Our commitment to security and content moderation is equally
                 uncompromising. Saguenay has a rigorous process for detecting
                 and banning users who post violent, pornographic or extremist
@@ -65,12 +70,14 @@ export default function About() {
                 create or join groups based on your passions and interests,
                 promoting authentic and enriching exchanges without fear of your
                 data being exploited.
+                </p>
                 <br />
                 <br />{" "}
                 <h2 className="text-2xl font-bold text-white italic">
                   Open-Source and Transparency: A Committed Community ✊🏻
                 </h2>
                 <br />
+                <p className="text-lg text-white leading-relaxed mb-8">
                 In addition to its commitment to privacy, Saguenay is an
                 open-source platform, which means that its code is accessible
                 and verifiable by all. This transparency ensures that we have
@@ -82,12 +89,14 @@ export default function About() {
                 profit. Our servers are hosted in the European Union and comply
                 with strict data protection regulations, giving you an extra
                 layer of privacy.
+                </p>
                 <br />
                 <br />
                 <h2 className="text-2xl font-bold text-white italic">
                   An Ethical Model: Putting the User First ✨
                 </h2>
                 <br />
+                <p className="text-lg text-white leading-relaxed mb-8">
                 Saguenay distinguishes itself from other social networks by
                 refusing to sacrifice user privacy in favor of a business model
                 based on advertising and attention control. Where other
@@ -102,7 +111,8 @@ export default function About() {
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-2 items-center gap-4 lg:gap-8">
             <a
               className="group flex flex-col h-full text-center hover:bg-zinc-800 rounded-2xl transition-all focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10"
-              href="#"
+              href="https://github.com/mpcgt/saguenay/issues/new/choose"
+              target="blank"
             >
               <svg
                 className="size-9 text-white mx-auto dark:text-neutral-200"
@@ -112,9 +122,9 @@ export default function About() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
@@ -129,9 +139,7 @@ export default function About() {
                   we can help you.
                 </p>
                 <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-indigo-600 dark:text-indigo-500">
-                <a href="https://github.com/mpcgt/saguenay/issues/new/choose" target="blank">
                   Create a ticket
-                  </a>
                   <svg
                     className="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -140,9 +148,9 @@ export default function About() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <path d="m9 18 6-6-6-6" />
                   </svg>
@@ -152,7 +160,8 @@ export default function About() {
 
             <a
               className="group flex flex-col h-full text-center hover:bg-zinc-800 rounded-2xl transition-all focus:outline-none focus:bg-gray-100 p-4 sm:p-6 dark:hover:bg-neutral-500/10 dark:focus:bg-neutral-500/10"
-              href="#"
+              href="mailto:sgn.ntwk@gmail.com"
+              target="blank"
             >
               <svg
                 className="size-9 text-white mx-auto dark:text-neutral-200"
@@ -162,9 +171,9 @@ export default function About() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
                 <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
@@ -178,9 +187,7 @@ export default function About() {
                   in Saguenay.
                 </p>
                 <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-indigo-600 dark:text-indigo-500">
-                <a href="mailto:sgn.ntwk@gmail.com" target="blank">
                   Send an email
-                  </a>
                   <svg
                     className="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -189,9 +196,9 @@ export default function About() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <path d="m9 18 6-6-6-6" />
                   </svg>

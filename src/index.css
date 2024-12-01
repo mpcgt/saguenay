@@ -31,13 +31,6 @@
   font-family: ahsing;
 }
 
-body {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;   
-}
-
 a {
   font-weight: 500;
   color: #646cff;

@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { supabase } from "../../api/supabase";
+import { createClient } from "@supabase/supabase-js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { Popover, Transition } from '@headlessui/react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
 interface Post {
@@ -12,220 +11,137 @@ interface Post {
   title: string;
   content: string;
   created_at: string;
-  user_name: number;
+  full_name: string;
+  user_id: number;
+  avatar_url: string;
+  hashtags: string[];
+  spotify_link?: string;
 }
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
+interface UserData {
+  id: string;
+  full_name: string;
+  email: string;
+  avatar_url: string;
 }
+
+const supabaseServiceRole = createClient(
+  import.meta.env.VITE_SUPABASE_URL as string,
+  import.meta.env.VITE_SUPABASE_SERVICE_ROLE as string
+);
 
 const ViewPosts = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
-  const [users, setUsers] = useState<User[]>([]);
+  const [usersMap, setUsersMap] = useState<Map<string, UserData>>(new Map());
   const [loading, setLoading] = useState(true);
 
   const suggestions = [{ name: "Saguenay", username: "@saguenay" }];
 
+  const findUserName = useCallback((userId: string) => {
+    return usersMap.get(userId)?.full_name || "Unknown";
+  }, [usersMap]);
+
+  const fetchUsers = async () => {
+    try {
+      const { data, error } = await supabaseServiceRole.auth.admin.listUsers();
+      if (error) throw new Error(error.message);
+  
+      const userMap = new Map();
+      data.users.forEach((user) => {
+        if (user.email) {
+          userMap.set(user.id, {
+            id: user.id,
+            full_name: user.user_metadata?.full_name || "Unknown",
+            email: user.email,
+            avatar_url: user.user_metadata?.avatar_url || "../../assets/images/others/unknown_avatar.png",
+          });
+        }
+      });
+      setUsersMap(userMap);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const { data: postsData, error: postsError } = await supabase
-        .from("posts")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      const { data: usersData, error: usersError } = await supabase
-        .from("users")
-        .select("*");
-
-      if (postsError || usersError) {
-        console.error("Error fetching data:", postsError || usersError);
-      } else {
-        setPosts(postsData as Post[]);
-        setUsers(usersData as User[]);
-      }
-      setLoading(false);
-    };
-
-    fetchData();
+    fetchUsers();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+  console.log("Users:", usersMap);
 
-    const { error } = await supabase.from("posts").insert([{ title, content }]);
 
-    if (error) {
-      console.error("Error inserting post:", error.message, error.details);
-    } else {
-      setTitle("");
-      setContent("");
-      console.log("Post created successfully");
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const { data: postsData, error: postsError } = await supabase
+          .from("posts")
+          .select(`id, title, content, created_at, user_id, hashtags, spotify_link`)
+          .order("created_at", { ascending: false });
+
+        if (postsError) {
+          console.error("Error fetching posts:", postsError.message);
+          return;
+        }
+
+        const postsWithUserDetails = postsData.map((post) => {
+          const userId = post.user_id?.toString();
+          const user = userId ? usersMap.get(userId) : null;
+          return {
+            ...post,
+            full_name: user ? user.full_name : "Unknown",
+            avatar_url: user?.avatar_url || "../../assets/images/others/unknown_avatar.png",
+          };
+        });
+
+        setPosts(postsWithUserDetails);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+
+    if (usersMap.size > 0) {
+      fetchPosts();
     }
-
-    setLoading(false);
-  };
+  }, [usersMap]);
 
   const trends = [
-    {
-      title: "#Saguenay",
-      category: "Technology",
-      posts: "∞ Posts",
-    },
-    {
-      title: "#France",
-      category: "Country",
-      posts: "∞ Posts",
-    },
-    {
-      title: "#GitHub",
-      category: "Programming",
-      posts: "∞ Posts",
-    },
-    {
-      title: "#Music",
-      category: "Activity",
-      posts: "∞ Posts",
-    },
-    {
-      title: "#NFL",
-      category: "Sports",
-      posts: "∞ Posts",
-    },
+    { title: "#Saguenay", category: "Technology", posts: "∞ Posts" },
+    { title: "#France", category: "Country", posts: "∞ Posts" },
+    { title: "#GitHub", category: "Programming", posts: "∞ Posts" },
+    { title: "#Music", category: "Activity", posts: "∞ Posts" },
+    { title: "#NFL", category: "Sports", posts: "∞ Posts" },
   ];
 
-  const findUserName = (userId: number) => {
-    const user = users.find((user) => user.id === userId);
-    return user ? user.name : "Saguenay";
-  };
-
-  const [isOpen, setIsOpen] = useState(false)
-  const word = "Certified"
-
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openModal = () => setIsModalOpen(true)
-  const closeModal = () => setIsModalOpen(false)
-
+  const [isOpen, setIsOpen] = useState(false);
+  const word = "Certified";
   return (
     <>
-    <div className="bg-black text-white p-4">
-      <div className="max-w-xl mx-auto bg-zinc-900 border border-zinc-800 mb-4 rounded-2xl mt-20">
-        <div className="flex items-center gap-2 p-4">
-          <div className="w-8 h-8 bg-zinc-700 rounded-full"></div>
-          <input
-            type="text"
-            placeholder="What's new?"
-            className="flex-1 bg-transparent border-none text-white placeholder-zinc-500 focus:outline-none cursor-pointer"
-            onClick={openModal}
-            readOnly
-          />
-          <button className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-2xl transition-colors">
-            Post
-          </button>
+      <div className="bg-black text-white p-4">
+        <div className="max-w-xl mx-auto bg-zinc-900 border border-zinc-800 mb-4 rounded-2xl mt-20">
+          <div className="flex items-center gap-2 p-4">
+            <div className="w-8 h-8 bg-zinc-700 rounded-full"></div>
+            <Link to="/create">
+              <input
+                type="text"
+                placeholder="What's new?"
+                className="flex-1 w-96 bg-transparent border-none text-white placeholder-zinc-500 focus:outline-none cursor-pointer"
+                readOnly
+              />
+            </Link>
+            <button className="px-4 py-2  bg-zinc-800 hover:bg-zinc-700 text-white rounded-2xl transition-colors">
+              Post
+            </button>
+          </div>
         </div>
       </div>
 
-      <AnimatePresence>
-        {isModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-              className="bg-zinc-800 rounded-2xl p-6 w-full max-w-xl"
-            >
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold">Create Post</h2>
-                <button onClick={closeModal} className="text-zinc-400 hover:text-white transition-colors">
-                  <X size={24} />
-                </button>
-              </div>
-              <form
-          onSubmit={handleSubmit}
-          className="flex flex-col items-center"
-        >
-          <div className="relative mb-4 w-full">
-            <input
-              type="text"
-              className="p-4 block w-full bg-zinc-900 hover:bg-zinc-800 border border-gray-700 rounded-2xl text-sm focus:border-indigo-500 focus:ring-indigo-500"
-              placeholder="Enter post title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="relative mb-4 w-full">
-            <textarea
-              className="p-4 block w-full bg-zinc-900 hover:bg-zinc-800 border-gray-700 rounded-2xl text-sm focus:border-indigo-500 focus:ring-indigo-500"
-              placeholder="Enter post content"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              required
-              rows={5}
-            ></textarea>
-
-            <div className="bottom-px inset-x-0 p-2 border-gray-700 rounded-2xl">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center"></div>
-                <button
-                onClick={closeModal}
-                  type="submit"
-                  className="inline-flex w-20 shrink-0 justify-center items-center size-8 text-white bg-indigo-500 hover:bg-indigo-600 focus:z-10 focus:outline-none focus:bg-indigo-600 transition"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <span>Loading...</span>
-                  ) : (
-                    <svg
-                      className="shrink-0 size-3.5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                    </svg>
-                  )}
-                  <p className="text-white">&nbsp;&nbsp;Post</p>
-                </button>
-              </div>
-            </div>
-          </div>
-          <p className="text-sm text-right relative bottom-4 left-32">
-          Before publishing, please follow the{" "}
-            <Link
-              to="/rules"
-              target="blank"
-            >
-              rules.
-            </Link>
-          </p>
-          <p className="text-sm text-right italic relative bottom-4 left-20">
-          Soon, you'll be able to publish images, videos and more...{" "}
-          </p>
-        </form>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-        </div>
-
       <div className="flex flex-col items-center justify-center h-full text-white bg-black mt-">
-      {loading ? (
+        {loading ? (
           <svg
             aria-hidden="true"
             className="inline w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-indigo-600"
@@ -247,45 +163,126 @@ const ViewPosts = () => {
         ) : (
           <ul className="w-full max-w-lg bg-zinc-900 rounded-2xl">
             {posts.map((post) => (
-              <li key={post.id} className="border-b border-zinc-800 last:border-b-0">
+              <li
+                key={post.id}
+                className="border-b border-zinc-800 last:border-b-0"
+              >
                 <div className="p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-zinc-700 rounded-full"></div>
+                      <div className="w-8 h-8 bg-zinc-700 rounded-full">
+                      <img
+              src={post.avatar_url || "../../assets/images/others/unknown_avatar.png"}
+              alt="User Avatar"
+              className="avatar"
+            />
+                      </div>
                       <div>
-                        <p className="text-sm font-medium">{findUserName(post.user_name)}</p>
-                        <p className="text-xs text-zinc-500">{new Date(post.created_at).toLocaleString()}</p>
+                        <p className="text-sm font-semibold">
+                        {post.full_name || "Unknown"}&nbsp;
+                        <span className="text-gray-400 font-normal">
+                        @{post.user_id ? findUserName(post.user_id.toString()) : "Unknown"}
+                        </span>
+                        </p>
+                         <p className="text-xs text-zinc-500">
+                          {new Date(post.created_at).toLocaleString()}
+                        </p>
                       </div>
                     </div>
                     <button className="text-zinc-500 hover:text-white hover:border-transparent hover:bg-zinc-600 hover:transition-all">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
                         <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
                       </svg>
                     </button>
                   </div>
                   <h2 className="text-xl font-bold my-2">{post.title}</h2>
-                  <p className="text-zinc-300">{post.content}</p>
+                  <div className="mt-2 flex flex-wrap">
+                    {post.content.split(" ").map((word, index) => {
+                      if (word.startsWith("#")) {
+                        return (
+                          <Link
+                            key={index}
+                            to={`/hashtag/${word.substring(1)}`}
+                            className="text-indigo-500 mr-1"
+                          >
+                            {word}
+                          </Link>
+                        );
+                      }
+                      return (
+                        <span key={index} className="text-white mr-1">
+                          {word}
+                        </span>
+                      );
+                    })}
+                  </div>
+                  {post.spotify_link && (
+  <div className="spotify-widget-container">
+    <iframe
+      src={`https://open.spotify.com/embed/track/${post.spotify_link.split('/').pop()}`}
+      width="100%"
+      height="80"
+      frameBorder="0"
+      allow="encrypted-media"
+      title="Spotify Widget"
+      className="rounded-2xl mt-2"
+    ></iframe>
+  </div>
+)}
                   <div className="flex items-center justify-between mt-4">
                     <button className="flex items-center gap-1 text-zinc-500 hover:text-red-500 hover:border-transparent transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span className="text-sm">Like</span>
                     </button>
                     <button className="flex items-center gap-1 text-zinc-500 hover:text-blue-500 hover:border-transparent transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span className="text-sm">Comment</span>
                     </button>
                     <button className="flex items-center gap-1 text-zinc-500 hover:text-green-500 hover:border-transparent transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
                         <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                       </svg>
                       <span className="text-sm">Share</span>
                     </button>
                     <button className="flex items-center gap-1 text-zinc-500 hover:text-purple-500 hover:border-transparent transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                       </svg>
                       <span className="text-sm">Save</span>
@@ -310,49 +307,49 @@ const ViewPosts = () => {
                     {suggestion.name[0]}
                   </div>
                   <div>
-                    <p className="cursor-pointer font-semibold">
+                    <span className="cursor-pointer font-semibold">
                       {suggestion.name}{" "}
                       <div className="inline-flex">
-                      <Popover className="relative">
-          <>
-            <div
-              onMouseEnter={() => setIsOpen(true)}
-              onMouseLeave={() => setIsOpen(false)}
-              className="cursor-pointer"
-            >
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                style={{ color: "#8896F7" }}
-              />
-            </div>
-            <Transition
-              show={isOpen}
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-              <Popover.Panel
-                static
-                className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-20"
-              >
-                <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                  <div className="p-2 bg-zinc-900 rounded-2xl">
-                    <span className="flex items-center justify-center">
-                      <span className="text-sm font-medium text-white">
-                        {word}
-                      </span>
+                        <Popover className="relative">
+                          <>
+                            <div
+                              onMouseEnter={() => setIsOpen(true)}
+                              onMouseLeave={() => setIsOpen(false)}
+                              className="cursor-pointer"
+                            >
+                              <FontAwesomeIcon
+                                icon={faCircleCheck}
+                                style={{ color: "#8896F7" }}
+                              />
+                            </div>
+                            <Transition
+                              show={isOpen}
+                              enter="transition duration-100 ease-out"
+                              enterFrom="transform scale-95 opacity-0"
+                              enterTo="transform scale-100 opacity-100"
+                              leave="transition duration-75 ease-out"
+                              leaveFrom="transform scale-100 opacity-100"
+                              leaveTo="transform scale-95 opacity-0"
+                            >
+                              <Popover.Panel
+                                static
+                                className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-20"
+                              >
+                                <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                                  <div className="p-2 bg-zinc-900 rounded-2xl">
+                                    <span className="flex items-center justify-center">
+                                      <span className="text-sm font-medium text-white">
+                                        {word}
+                                      </span>
+                                    </span>
+                                  </div>
+                                </div>
+                              </Popover.Panel>
+                            </Transition>
+                          </>
+                        </Popover>
+                      </div>
                     </span>
-                  </div>
-                </div>
-              </Popover.Panel>
-            </Transition>
-          </>
-      </Popover>
-      </div>
-                    </p>
                     <p className="text-sm mr-10 text-gray-400">
                       {suggestion.username}
                     </p>
@@ -375,12 +372,12 @@ const ViewPosts = () => {
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-xl font-bold">Trends for you</h2>
           </div>
-            <hr className="border-gray-600 w-36 mb-4" />
+          <hr className="border-gray-600 w-36 mb-4" />
           <ul className="space-y-4">
             {trends.map((trend, index) => (
               <li
-              key={index}
-              className="cursor-pointer hover:bg-zinc-800 p-2 rounded"
+                key={index}
+                className="cursor-pointer hover:bg-zinc-800 p-2 rounded"
               >
                 <div className="text-sm text-gray-400">{trend.category}</div>
                 <div className="font-bold">{trend.title}</div>

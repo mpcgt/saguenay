@@ -107,7 +107,7 @@ export default function Hero() {
           retain total control over their interactions and online experience.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-gray-900 p-6 rounded-lg">
+          <div className="bg-gray-900 p-6 rounded-3xl">
             <div className="text-indigo-400 text-4xl font-bold mb-2">10+</div>
             <h3 className="text-xl font-semibold mb-2">Groups created 👥</h3>
             <p className="text-gray-400 mb-4">
@@ -116,13 +116,16 @@ export default function Hero() {
               interference from algorithms or advertising, while respecting each
               other's privacy.
             </p>
-            <a href="#" className="text-indigo-400 flex items-center">
+            <Link
+              to="/development"
+              className="text-indigo-400 flex items-center"
+            >
               Read more <ArrowRight className="ml-2" />
-            </a>
+            </Link>
           </div>
-          <div className="bg-gray-900 p-6 rounded-lg">
+          <div className="bg-gray-900 p-6 rounded-3xl">
             <div className="text-green-400 text-4xl font-bold mb-2">
-              44%<span>&nbsp;</span>
+              51%<span>&nbsp;</span>
               <FontAwesomeIcon
                 icon={faCircle}
                 fade
@@ -138,24 +141,52 @@ export default function Hero() {
               already in place to deliver a smooth, secure and user-friendly
               experience.
             </p>
-            <a href="#" className="text-indigo-400 flex items-center">
+            <Link
+              to="/development"
+              className="text-indigo-400 flex items-center"
+            >
               Read more <ArrowRight className="ml-2" />
-            </a>
+            </Link>
           </div>
-          <div className="bg-gray-900 p-6 rounded-lg">
+          <div className="bg-gray-900 p-6 rounded-3xl">
             <div className="text-red-400 text-4xl font-bold mb-2">100%</div>
             <h3 className="text-xl font-semibold mb-2">
-              Respect for privacy 🔒
+              Your data is stored in France&nbsp;&nbsp;
+              <svg
+                width="30px"
+                height="40px"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                className="iconify iconify--twemoji"
+                preserveAspectRatio="xMidYMid meet"
+                style={{ display: "inline-block" }}
+              >
+                <path
+                  fill="#ED2939"
+                  d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4v18z"
+                ></path>
+                <path
+                  fill="#002495"
+                  d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5H4z"
+                ></path>
+                <path fill="#EEE" d="M12 5h12v26H12z"></path>
+              </svg>
             </h3>
             <p className="text-gray-400 mb-4">
-              Saguenay is committed to protecting the privacy of its users by
-              ensuring that all their personal data is encrypted and secured by
-              state-of-the-art protection measures, guaranteeing exceptional
-              confidentiality.
+              As part of our commitment to transparency and security, your data
+              is stored in France. This means that your personal information is
+              handled in accordance with the highest standards of data
+              protection, offering you both security and compliance with global
+              privacy regulations.
             </p>
-            <a href="#" className="text-indigo-400 flex items-center">
+            <Link
+              to="/development"
+              className="text-indigo-400 flex items-center"
+            >
               Read more <ArrowRight className="ml-2" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -270,27 +301,17 @@ export default function Hero() {
           <form className="md:w-2/3">
             <input
               type="text"
-              placeholder="Name"
-              className="w-full bg-gray-800 text-white p-3 rounded-lg mb-4"
+              placeholder="Name (Coming soon!)"
+              className="w-full bg-gray-800 text-white p-3 rounded-2xl mb-4"
             />
             <input
               type="email"
-              placeholder="Email"
-              className="w-full bg-gray-800 text-white p-3 rounded-lg mb-4"
-            />
-            <input
-              type="text"
-              placeholder="Company"
-              className="w-full bg-gray-800 text-white p-3 rounded-lg mb-4"
-            />
-            <input
-              type="tel"
-              placeholder="Phone"
-              className="w-full bg-gray-800 text-white p-3 rounded-lg mb-4"
+              placeholder="Email (Coming soon!)"
+              className="w-full bg-gray-800 text-white p-3 rounded-2xl mb-4"
             />
             <textarea
-              placeholder="Tell us about your project"
-              className="w-full bg-gray-800 text-white p-3 rounded-lg mb-4"
+              placeholder="Write your message (Coming soon!)"
+              className="w-full bg-gray-800 text-white p-3 rounded-2xl mb-4"
               rows={4}
             ></textarea>
             <button
