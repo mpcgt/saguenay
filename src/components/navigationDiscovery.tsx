@@ -399,15 +399,24 @@ export default function Navigation() {
             </Link>
             <Link
               to="/rules"
+              target='blank'
               className="text-gray-500 hover:text-gray-700 transition-all"
               >
               Rules •
             </Link>
             <Link
               to="https://github.com/mpcgt/saguenay?tab=coc-ov-file"
+              target='blank'
               className="text-gray-500 hover:text-gray-700 transition-all"
             >
               Code of Conduct •
+            </Link>
+            <Link
+              to="https://github.com/mpcgt/saguenay?tab=GPL-3.0-1-ov-file#readme"
+              target='blank'
+              className="text-gray-500 hover:text-gray-700 transition-all"
+            >
+              License •
             </Link>
             <Link
               to="/development"
@@ -417,22 +426,22 @@ export default function Navigation() {
             </Link>
             <Link
               to="https://help.saguenay.vercel.app/docs/intro"
-              className="text-gray-500 hover:text-gray-700 transition-all"
               target="_blank"
+              className="text-gray-500 hover:text-gray-700 transition-all"
               >
               Documentation •
             </Link>
             <Link
               to="https://help.saguenay.vercel.app/docs/security"
-              className="text-gray-500 hover:text-gray-700 transition-all"
               target="_blank"
+              className="text-gray-500 hover:text-gray-700 transition-all"
               >
               Security •
             </Link>
             <Link
               to="https://help.saguenay.vercel.app/blog"
-              className="text-gray-500 hover:text-gray-700 transition-all"
               target="_blank"
+              className="text-gray-500 hover:text-gray-700 transition-all"
               >
               Blog •
             </Link>
