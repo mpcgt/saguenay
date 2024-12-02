@@ -6,7 +6,7 @@ function isString(value: string | undefined): value is string {
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabaseServiceRole = import.meta.env.VITE_SUPABASE_SERVICE_ROLE;
+export const supabaseServiceRole = import.meta.env.VITE_SUPABASE_SERVICE_ROLE;
 
 
 if (!isString(supabaseUrl) || !isString(supabaseAnonKey) || !isString(supabaseServiceRole)) {
