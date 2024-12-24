@@ -1,4 +1,3 @@
-const flowbite = require("flowbite-react/tailwind");
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
@@ -7,7 +6,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./node_modules/flowbite/**/*.js",
     'node_modules/preline/dist/*.js',
-    flowbite.content(),
   ],
   theme: {
   	extend: {
@@ -88,9 +86,4 @@ export default {
   		}
   	}
   },
-  plugins: [
-    require('preline/plugin'),
-    flowbite.plugin(),
-      require("tailwindcss-animate")
-],
 }

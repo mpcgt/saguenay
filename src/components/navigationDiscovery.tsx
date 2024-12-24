@@ -391,6 +391,13 @@ export default function Navigation() {
             </nav>
           </div>
           <div className="space-x-2 text-xs ml-3 mr-3 mb-3">
+          <Link
+              to="https://saguenay.instatus.com/"
+              target='blank'
+              className="text-gray-500 hover:text-gray-700 transition-all"
+            >
+              Status •
+            </Link>
             <Link
               to="/development"
               className="text-gray-500 hover:text-gray-700 transition-all"

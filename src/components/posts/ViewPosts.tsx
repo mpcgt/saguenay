@@ -35,6 +35,7 @@ const ViewPosts = () => {
   const [usersMap, setUsersMap] = useState<Map<string, UserData>>(new Map());
   const [loading, setLoading] = useState(true);
 
+  const avatarUrl = "https://avatars.githubusercontent.com/u/";
   const suggestions = [{ name: "Saguenay", username: "@saguenay" }];
 
   const findUserName = useCallback((userId: string) => {
@@ -68,8 +69,6 @@ const ViewPosts = () => {
   }, []);
 
   console.log("Users:", usersMap);
-
-
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -124,7 +123,7 @@ const ViewPosts = () => {
       <div className="bg-black text-white p-4">
         <div className="max-w-xl mx-auto bg-zinc-900 border border-zinc-800 mb-4 rounded-2xl mt-20">
           <div className="flex items-center gap-2 p-4">
-            <div className="w-8 h-8 bg-zinc-700 rounded-full"></div>
+          <img src={avatarUrl} alt="Avatar" className="w-8 h-8 bg-zinc-700 rounded-full" />
             <Link to="/create">
               <input
                 type="text"
