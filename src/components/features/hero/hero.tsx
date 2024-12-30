@@ -210,7 +210,7 @@ export default function Hero() {
             alt="Image"
             width={400}
             height={300}
-            className="rounded-lg"
+            className="rounded-2xl"
           />
           <div className="space-y-6">
             <div className="flex items-start">

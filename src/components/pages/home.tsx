@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import Hero from "../features/hero/hero";
+import { NewHero } from "../features/hero/newhero";
 
 export default function Home() {
   useEffect(() => {
     document.title = 'Saguenay';
   }, []);
     return (
-      <Hero />
+      <NewHero />
     );
   }
   

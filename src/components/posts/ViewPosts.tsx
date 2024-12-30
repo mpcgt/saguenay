@@ -2,9 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import { supabase } from "../../api/supabase";
 import { createClient } from "@supabase/supabase-js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { Popover, Transition } from "@headlessui/react";
+import {
+  faArrowTrendUp,
+  faCircleExclamation,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 interface Post {
   id: number;
@@ -34,19 +37,22 @@ const ViewPosts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [usersMap, setUsersMap] = useState<Map<string, UserData>>(new Map());
   const [loading, setLoading] = useState(true);
+  const [copied, setCopied] = useState(false); // État pour gérer l'affichage du popup
 
   const avatarUrl = "https://avatars.githubusercontent.com/u/";
-  const suggestions = [{ name: "Saguenay", username: "@saguenay" }];
 
-  const findUserName = useCallback((userId: string) => {
-    return usersMap.get(userId)?.full_name || "Unknown";
-  }, [usersMap]);
+  const findUserName = useCallback(
+    (userId: string) => {
+      return usersMap.get(userId)?.full_name || "Unknown";
+    },
+    [usersMap]
+  );
 
   const fetchUsers = async () => {
     try {
       const { data, error } = await supabaseServiceRole.auth.admin.listUsers();
       if (error) throw new Error(error.message);
-  
+
       const userMap = new Map();
       data.users.forEach((user) => {
         if (user.email) {
@@ -54,7 +60,9 @@ const ViewPosts = () => {
             id: user.id,
             full_name: user.user_metadata?.full_name || "Unknown",
             email: user.email,
-            avatar_url: user.user_metadata?.avatar_url || "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true",
+            avatar_url:
+              user.user_metadata?.avatar_url ||
+              "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true",
           });
         }
       });
@@ -68,15 +76,15 @@ const ViewPosts = () => {
     fetchUsers();
   }, []);
 
-  console.log("Users:", usersMap);
-
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
         const { data: postsData, error: postsError } = await supabase
           .from("posts")
-          .select(`id, title, content, created_at, user_id, hashtags, spotify_link`)
+          .select(
+            `id, title, content, created_at, user_id, hashtags, spotify_link`
+          )
           .order("created_at", { ascending: false });
 
         if (postsError) {
@@ -90,7 +98,9 @@ const ViewPosts = () => {
           return {
             ...post,
             full_name: user ? user.full_name : "Unknown",
-            avatar_url: user?.avatar_url || "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true",
+            avatar_url:
+              user?.avatar_url ||
+              "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true",
           };
         });
 
@@ -101,7 +111,6 @@ const ViewPosts = () => {
         setLoading(false);
       }
     };
-    
 
     if (usersMap.size > 0) {
       fetchPosts();
@@ -109,37 +118,61 @@ const ViewPosts = () => {
   }, [usersMap]);
 
   const trends = [
-    { title: "#Saguenay", category: "Technology", posts: "∞ Posts" },
-    { title: "#France", category: "Country", posts: "∞ Posts" },
-    { title: "#GitHub", category: "Programming", posts: "∞ Posts" },
-    { title: "#Music", category: "Activity", posts: "∞ Posts" },
-    { title: "#NFL", category: "Sports", posts: "∞ Posts" },
+    { title: "#Saguenay" },
+    { title: "#France" },
+    { title: "#GitHub" },
+    { title: "#TaylorSwift" },
+    { title: "#2025" },
+    { title: "#OnePiece" },
+    { title: "#SanSebatiàn" },
+    { title: "#Minecraft" },
   ];
 
-  const [isOpen, setIsOpen] = useState(false);
-  const word = "Certified";
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+
+  const toggleDropdown = (postId: number): void => {
+    setOpenDropdown((prev) => (prev === postId ? null : postId));
+  };
+
+  const copyLink = (postId: number) => {
+    const postUrl = `${window.location.origin}/post/${postId}`;
+    navigator.clipboard
+      .writeText(postUrl)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      })
+      .catch((err) => {
+        console.error("Erreur lors de la copie :", err);
+      });
+  };
+
   return (
     <>
       <div className="bg-black text-white p-4">
         <div className="max-w-xl mx-auto bg-zinc-900 border border-zinc-800 mb-4 rounded-2xl mt-20">
           <div className="flex items-center gap-2 p-4">
-          <img src={avatarUrl} alt="Avatar" className="w-8 h-8 bg-zinc-700 rounded-full" />
+            <img
+              src={avatarUrl}
+              alt="Avatar"
+              className="w-8 h-8 bg-zinc-700 rounded-full"
+            />
             <Link to="/create">
               <input
                 type="text"
-                placeholder="What's new?"
+                placeholder={t("placeholderPost")}
                 className="flex-1 w-96 bg-transparent border-none text-white placeholder-zinc-500 focus:outline-none cursor-pointer"
                 readOnly
               />
             </Link>
             <button className="px-4 py-2  bg-zinc-800 hover:bg-zinc-700 text-white rounded-2xl transition-colors">
-              Post
+              {t("postSend")}
             </button>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center h-full text-white bg-black mt-">
+      <div className="flex flex-col items-center justify-center h-full text-white bg-black">
         {loading ? (
           <svg
             aria-hidden="true"
@@ -158,9 +191,9 @@ const ViewPosts = () => {
             />
           </svg>
         ) : posts.length === 0 ? (
-          <p>No posts available</p>
+          <p>{t("noPosts")}</p>
         ) : (
-          <ul className="w-full max-w-lg bg-zinc-900 rounded-2xl">
+          <ul className="w-full max-w-3xl bg-zinc-950 rounded-2xl">
             {posts.map((post) => (
               <li
                 key={post.id}
@@ -170,36 +203,71 @@ const ViewPosts = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-zinc-700 rounded-full">
-                      <img
-              src={post.avatar_url || "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true"}
-              alt="User Avatar"
-              className="avatar rounded-2xl"
-            />
+                        <img
+                          src={
+                            post.avatar_url ||
+                            "https://github.com/mpcgt/saguenay/blob/main/src/assets/images/others/unknown_avatar.png?raw=true"
+                          }
+                          alt="User Avatar"
+                          className="avatar rounded-2xl"
+                        />
                       </div>
                       <div>
                         <p className="text-sm font-semibold">
-                        {post.full_name || "Unknown"}&nbsp;
-                        <span className="text-gray-400 font-normal">
-                        @{post.user_id ? findUserName(post.user_id.toString()) : "Unknown"}
-                        </span>
+                          {post.full_name || "Unknown"}&nbsp;
+                          <span className="text-gray-400 font-normal">
+                            @
+                            {post.user_id
+                              ? findUserName(post.user_id.toString())
+                              : "Unknown"}
+                          </span>
                         </p>
-                         <p className="text-xs text-zinc-500">
+                        <p className="text-xs text-zinc-500">
                           {new Date(post.created_at).toLocaleString()}
                         </p>
                       </div>
                     </div>
-                    <button className="text-zinc-500 hover:text-white hover:border-transparent hover:bg-zinc-600 hover:transition-all">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
+                    <div className="relative inline-block text-left">
+                      <button
+                        onClick={() => toggleDropdown(post.id)}
+                        className="text-zinc-500 hover:text-white hover:border-transparent hover:bg-zinc-600 hover:transition-all p-2 rounded-full"
                       >
-                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                      </svg>
-                    </button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                        </svg>
+                      </button>
+
+                      {openDropdown === post.id && (
+                        <div className="absolute right-0 mt-2 w-48 bg-zinc-950 shadow-lg rounded-2xl border border-zinc-700">
+                          <ul className="py-1">
+                            <li className="text-red-600 hover:bg-zinc-900 hover:font-bold cursor-pointer rounded-2xl flex items-center px-4 py-2">
+                              <Link
+                                to="https://forms.gle/KV2bGhFgwg3v2cJH7"
+                                target="_blank"
+                                className="text-red-600 hover:text-red-600"
+                              >
+                                <FontAwesomeIcon icon={faCircleExclamation} />
+                                &nbsp;&nbsp;{t("reportPost")}
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <h2 className="text-xl font-bold my-2">{post.title}</h2>
+                  <h2 className="text-xl font-bold my-2">
+                    <Link
+                      to={`/post/${post.id}`}
+                      className="text-white hover:text-white hover:underline"
+                    >
+                      {post.title}
+                    </Link>
+                  </h2>
                   <div className="mt-2 flex flex-wrap">
                     {post.content.split(" ").map((word, index) => {
                       if (word.startsWith("#")) {
@@ -221,20 +289,22 @@ const ViewPosts = () => {
                     })}
                   </div>
                   {post.spotify_link && (
-  <div className="spotify-widget-container">
-    <iframe
-      src={`https://open.spotify.com/embed/track/${post.spotify_link.split('/').pop()}`}
-      width="100%"
-      height="80"
-      frameBorder="0"
-      allow="encrypted-media"
-      title="Spotify Widget"
-      className="rounded-2xl mt-2"
-    ></iframe>
-  </div>
-)}
+                    <div className="spotify-widget-container">
+                      <iframe
+                        src={`https://open.spotify.com/embed/track/${post.spotify_link
+                          .split("/")
+                          .pop()}`}
+                        width="100%"
+                        height="80"
+                        frameBorder="0"
+                        allow="encrypted-media"
+                        title="Spotify Widget"
+                        className="rounded-2xl mt-2"
+                      ></iframe>
+                    </div>
+                  )}
                   <div className="flex items-center justify-between mt-4">
-                    <button className="flex items-center gap-1 text-zinc-500 hover:text-red-500 hover:border-transparent transition-colors">
+                    <button className="flex items-center gap-1 bg-transparent text-zinc-500 hover:text-red-500 hover:border-transparent transition-colors">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -247,9 +317,9 @@ const ViewPosts = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-sm">Like</span>
+                      <span className="text-sm">{t("likePost")}</span>
                     </button>
-                    <button className="flex items-center gap-1 text-zinc-500 hover:text-blue-500 hover:border-transparent transition-colors">
+                    <button className="flex items-center gap-1 bg-transparent text-zinc-500 hover:text-blue-500 hover:border-transparent transition-colors">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -262,9 +332,12 @@ const ViewPosts = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-sm">Comment</span>
+                      <span className="text-sm">{t("commentPost")}</span>
                     </button>
-                    <button className="flex items-center gap-1 text-zinc-500 hover:text-green-500 hover:border-transparent transition-colors">
+                    <button
+                      onClick={() => copyLink(post.id)}
+                      className="flex items-center gap-1 bg-transparent text-zinc-500 hover:text-green-500 hover:border-transparent transition-colors"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -273,9 +346,14 @@ const ViewPosts = () => {
                       >
                         <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                       </svg>
-                      <span className="text-sm">Share</span>
+                      <span className="text-sm">{t("sharePost")}</span>
                     </button>
-                    <button className="flex items-center gap-1 text-zinc-500 hover:text-purple-500 hover:border-transparent transition-colors">
+                    {copied && (
+                      <div className="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-2xl shadow-lg">
+                        ✅ {t("copyLink")}
+                      </div>
+                    )}
+                    <button className="flex items-center gap-1 bg-transparent text-zinc-500 hover:text-purple-500 hover:border-transparent transition-colors">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -284,7 +362,7 @@ const ViewPosts = () => {
                       >
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                       </svg>
-                      <span className="text-sm">Save</span>
+                      <span className="text-sm">{t("savePost")}</span>
                     </button>
                   </div>
                 </div>
@@ -294,99 +372,32 @@ const ViewPosts = () => {
         )}
       </div>
 
-      <div className="fixed top-20 right-10 justify-end text-white hidden lg:block ">
-        <div className="bg-zinc-900 text-white p-4 rounded-2xl w-80">
-          <h2 className="text-lg font-semibold mb-2">You might like</h2>
-          <hr className="border-gray-600 w-32 mb-4" />
-          <ul className="space-y-4">
-            {suggestions.map((suggestion, index) => (
-              <li key={index} className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-purple-300 flex items-center justify-center text-black ahsing pb-1">
-                    {suggestion.name[0]}
-                  </div>
-                  <div>
-                    <span className="cursor-pointer font-semibold">
-                      {suggestion.name}{" "}
-                      <div className="inline-flex">
-                        <Popover className="relative">
-                          <>
-                            <div
-                              onMouseEnter={() => setIsOpen(true)}
-                              onMouseLeave={() => setIsOpen(false)}
-                              className="cursor-pointer"
-                            >
-                              <FontAwesomeIcon
-                                icon={faCircleCheck}
-                                style={{ color: "#8896F7" }}
-                              />
-                            </div>
-                            <Transition
-                              show={isOpen}
-                              enter="transition duration-100 ease-out"
-                              enterFrom="transform scale-95 opacity-0"
-                              enterTo="transform scale-100 opacity-100"
-                              leave="transition duration-75 ease-out"
-                              leaveFrom="transform scale-100 opacity-100"
-                              leaveTo="transform scale-95 opacity-0"
-                            >
-                              <Popover.Panel
-                                static
-                                className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-20"
-                              >
-                                <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                  <div className="p-2 bg-zinc-900 rounded-2xl">
-                                    <span className="flex items-center justify-center">
-                                      <span className="text-sm font-medium text-white">
-                                        {word}
-                                      </span>
-                                    </span>
-                                  </div>
-                                </div>
-                              </Popover.Panel>
-                            </Transition>
-                          </>
-                        </Popover>
-                      </div>
-                    </span>
-                    <p className="text-sm mr-10 text-gray-400">
-                      {suggestion.username}
-                    </p>
-                  </div>
-                </div>
-                <button className="px-4 py-1 border border-white rounded-full text-white hover:bg-gray-600 hover:text-white hover:border-transparent transition-colors">
-                  Follow
-                </button>
-              </li>
-            ))}
-          </ul>
-          <button className="bg-zinc-800 text-indigo-400 hover:border-transparent mt-4 text-sm">
-            Show more
-          </button>
-        </div>
-      </div>
-
-      <div className="fixed top-80 right-10 justify-end text-white hidden lg:block">
-        <div className="bg-zinc-900 text-white p-4 rounded-2xl w-80">
+      <div className="fixed top-24 right-10 justify-end text-white lg:block">
+        <div className="text-white p-4 rounded-2xl w-80 border border-zinc-800">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-xl font-bold">Trends for you</h2>
+            <p className="text-xl font-bold">
+              {t("trendingPost")}&nbsp;&nbsp;
+              <FontAwesomeIcon
+                icon={faArrowTrendUp}
+                style={{ color: "#4F46E5" }}
+              />
+            </p>
           </div>
+          <p className="text-xs font-bold pb-4 text-zinc-400">
+            {t("trendingText")}
+          </p>
           <hr className="border-gray-600 w-36 mb-4" />
-          <ul className="space-y-4">
+          <ul className="grid grid-cols-2 gap-4">
             {trends.map((trend, index) => (
-              <li
-                key={index}
-                className="cursor-pointer hover:bg-zinc-800 p-2 rounded"
-              >
-                <div className="text-sm text-gray-400">{trend.category}</div>
-                <div className="font-bold">{trend.title}</div>
-                <div className="text-sm text-gray-400">{trend.posts}</div>
-              </li>
-            ))}
+  <Link
+    key={index}
+    to={`/hashtag/${trend.title.substring(1)}`}
+    className="cursor-pointer text-white hover:text-white hover:bg-zinc-800 p-2 rounded-2xl border border-zinc-800 transition-all"
+    >
+    {trend.title}
+  </Link>
+))}
           </ul>
-          <button className="bg-zinc-800 text-indigo-400 hover:border-transparent mt-4 text-sm">
-            Show more
-          </button>
         </div>
       </div>
     </>

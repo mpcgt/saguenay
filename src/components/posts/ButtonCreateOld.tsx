@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       variants={modalVariants}
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
-      <div className="bg-black rounded-lg p-4 w-1/3 shadow-lg">
+      <div className="bg-black rounded-2xl p-4 w-1/3 shadow-lg">
         <CreatePost />
         <button onClick={onClose} className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 transition duration-200">
           Close
@@ -130,7 +130,6 @@ export default function CreateButton() {
         </motion.div>
       </div>
 
-      {/* Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   )

@@ -91,7 +91,7 @@ const DiscussionsAbout: React.FC = () => {
               </div>
               {activeTab === "about" && (
                 <div className="mt-6">
-                  <div className="bg-[#242526] rounded-lg p-4">
+                  <div className="bg-[#242526] rounded-2xl p-4">
                     <h2 className="text-xl font-semibold mb-4">
                       About this group
                     </h2>
@@ -152,7 +152,7 @@ const DiscussionsAbout: React.FC = () => {
               )}
               {activeTab === "discussion" && (
                 <div className="mt-6">
-                <div className="bg-[#242526] rounded-lg p-4">
+                <div className="bg-[#242526] rounded-2xl p-4">
                 <h2 className="text-xl font-semibold mb-4">
                 Announcements in this group
                 </h2>

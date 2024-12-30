@@ -11,7 +11,7 @@ export default function TicTacToe() {
   const [gameOver, setGameOver] = useState(false)
 
   const calculateWinner = (squares: (string | null)[]) => {
-    const lines = [
+    const lines = [ 
       [0, 1, 2],
       [3, 4, 5],
       [6, 7, 8],

@@ -8,7 +8,7 @@ export default function BannerLang() {
     };
   
   return (
-    <a className="relative z-50 group block bg-transparent hover:bg-gray-950 focus:outline-none focus:bg-gray-200 p-4 rounded-lg text-center transition duration-300 dark:bg-white/10 dark:hover:bg-white/10 dark:focus:bg-white/10" href="#">
+    <a className="relative z-50 group block bg-transparent hover:bg-gray-950 focus:outline-none focus:bg-gray-200 p-4 rounded-2xl text-center transition duration-300 dark:bg-white/10 dark:hover:bg-white/10 dark:focus:bg-white/10" href="#">
       <div className="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
         <p className="me-2 inline-block text-sm text-white">
         Saguenay is now available in French and Spanish. <i style={{ fontSize: '10px'}}>(3% total translated pages)</i>

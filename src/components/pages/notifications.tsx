@@ -55,7 +55,7 @@ export default function Notification() {
     <div className="bg-black">
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 mt-16">
       <div className="max-w-3xl mx-auto">
-        <div className="shadow rounded-lg overflow-hidden">
+        <div className="shadow rounded-2xl overflow-hidden">
           <div className="p-4 sm:p-6 border-b border-gray-200">
             <div className="flex items-center justify-between">
               <h1 className="text-lg font-medium text-white">Notifications</h1>

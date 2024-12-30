@@ -3,7 +3,6 @@
   import { Analytics } from "@vercel/analytics/react"
   import Home from './components/pages/home'
   import Discovery from './components/pages/discovery'
-  import ViewPost from "./components/posts/ViewPosts";
   import CreatePost from './components/posts/CreatePost'
   import HashtagPage from './components/posts/hashtagPage'
   import Saved from "./components/pages/saved"
@@ -11,6 +10,7 @@
   import Profile from './components/pages/profile'
   import Settings from "./components/pages/settings"
   import Groups from './components/pages/groups'
+  import ChatRooms from './components/pages/chatRooms'
   import AnimalsAbout from './components/pages/groups/animalsAbout'
   import DiscussionsAbout from './components/pages/groups/discussionsAbout'
   import FoodAbout from './components/pages/groups/foodAbout'
@@ -37,6 +37,7 @@
   import Security from './components/pages/help/security'
   import SettingsAccount from './components/pages/help/settings-account'
   import { AuthProvider } from './hooks/AuthContext'
+import PostDetail from './components/posts/postDetail'
 
   i18next.use(initReactI18next).init({
     resources: {
@@ -88,7 +89,7 @@
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/post/:postId" element={<ViewPost />} />
+            <Route path="/post/:id" element={<PostDetail />} />
             <Route path="/hashtag/:hashtag" element={<HashtagPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/help" element={<Help />} />
@@ -112,6 +113,8 @@
               <Route path="/notification" element={<Notification />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/groups" element={<Groups />} />
+              <Route path="/rooms" element={<ChatRooms />} />
+              <Route path="/rooms/:roomId" element={<ChatRooms />} />
               <Route path="/animals" element={<AnimalsAbout />} />
               <Route path="/discussions" element={<DiscussionsAbout />} />
               <Route path="/food" element={<FoodAbout />} />
