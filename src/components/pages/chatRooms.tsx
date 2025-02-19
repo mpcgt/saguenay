@@ -162,7 +162,7 @@ export default function ChatRooms() {
   };
 
   return (
-    <div className="bg-black h-screen w-screen">
+    <div className="bg-black text-white h-screen w-screen">
       <div className="max-w-3xl mx-auto p-6">
         <Navigation />
         <h1 className="text-3xl font-bold mt-20">{t("titleEphemere")}</h1>
