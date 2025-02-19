@@ -19,6 +19,7 @@ interface Post {
   avatar_url: string;
   hashtags: string[];
   spotify_link?: string;
+  likes?: number;
 }
 
 interface UserData {
@@ -83,7 +84,7 @@ const ViewPosts = () => {
         const { data: postsData, error: postsError } = await supabase
           .from("posts")
           .select(
-            `id, title, content, created_at, user_id, hashtags, spotify_link`
+            `id, title, content, created_at, user_id, hashtags, spotify_link, likes`
           )
           .order("created_at", { ascending: false });
 
@@ -116,6 +117,33 @@ const ViewPosts = () => {
       fetchPosts();
     }
   }, [usersMap]);
+
+  const likePost = async (postId: number, currentLikes: number, isLiked: boolean) => {
+    try {
+      const newLikes = isLiked ? currentLikes - 1 : currentLikes + 1;
+  
+      const { data, error } = await supabase
+        .from('posts')
+        .update({ likes: newLikes })
+        .eq('id', postId)
+        .select();
+  
+      if (error) throw error;
+  
+      setPosts((prevPosts) =>
+        prevPosts.map((post) =>
+          post.id === postId ? { ...post, likes: data[0].likes } : post
+        )
+      );
+    } catch (error) {
+      console.error('Error liking or disliking post:', error);
+    }
+  };
+  
+  const handleLikeClick = (postId: number, currentLikes: number, isLiked: boolean) => {
+    likePost(postId, currentLikes, isLiked);
+  };
+  
 
   const trends = [
     { title: "#Saguenay" },
@@ -230,7 +258,7 @@ const ViewPosts = () => {
                     <div className="relative inline-block text-left">
                       <button
                         onClick={() => toggleDropdown(post.id)}
-                        className="text-zinc-500 hover:text-white hover:border-transparent hover:bg-zinc-600 hover:transition-all p-2 rounded-full"
+                        className="text-zinc-500 hover:text-white hover:border-transparent bg-zinc-800 hover:bg-zinc-600 hover:transition-all p-2 rounded-full"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -304,21 +332,29 @@ const ViewPosts = () => {
                     </div>
                   )}
                   <div className="flex items-center justify-between mt-4">
-                    <button className="flex items-center gap-1 bg-transparent text-zinc-500 hover:text-red-500 hover:border-transparent transition-colors">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span className="text-sm">{t("likePost")}</span>
-                    </button>
+                  <button
+  onClick={() => handleLikeClick(post.id, post.likes || 0, (post.likes || 0) > 0)}
+  className="flex items-center gap-1 bg-transparent text-zinc-500 hover:text-red-500 hover:border-transparent transition-colors"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+  >
+    <path
+      fillRule="evenodd"
+      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+      clipRule="evenodd"
+    />
+  </svg>
+  <span className="text-sm">
+    {(post.likes || 0) > 0 ? t("dislikePost") : t("likePost")} {post.likes || 0}
+  </span>
+</button>
+
+
+
                     <button className="flex items-center gap-1 bg-transparent text-zinc-500 hover:text-blue-500 hover:border-transparent transition-colors">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

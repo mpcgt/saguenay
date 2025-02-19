@@ -95,7 +95,7 @@ const NewHero: FC = () => {
                             </Link>
                           </span>
                         </button>
-                        <Button className="border hover:border-indigo-500 hover:bg-zinc-700 text-white rounded-2xl transition-all px-3 py-2">
+                        <Button className="border hover:border-indigo-500 bg-zinc-800 hover:bg-zinc-700 text-white rounded-2xl transition-all px-3 py-2">
                           <div
                             style={{
                               display: "flex",
@@ -162,7 +162,7 @@ const NewHero: FC = () => {
                         <span className="ahsing">Saguenay </span>
                         {t("language")}
                       </p>
-                      <div style={{ display: "flex", gap: "10px" }}>
+                      <div style={{ display: "flex", gap: "10px", backgroundColor: "black" }}>
                         <button onClick={() => handleChangeLanguage("fr")}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -460,7 +460,7 @@ const NewHero: FC = () => {
                     className="flex justify-center mx-auto text-6xl	"
                   />
                 </div>
-                <section className="bg-black py-20 px-4">
+                <section className="bg-black text-white py-20 px-4">
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
                     <div className="md:col-span-2 lg:col-span-3 bg-gradient-to-bl from-gray-700 via-gray-900 to-black p-6 rounded-2xl shadow-md flex flex-col justify-between order-1">
                       <div>
@@ -551,7 +551,7 @@ const NewHero: FC = () => {
                   </div>
                 </section>
               </div>
-              <section className="bg-black py-20 px-4">
+              <section className="bg-black text-white py-20 px-4">
                 <h2 className="text-3xl font-bold text-center mb-4 ahsing">
                   The numbers
                 </h2>
@@ -653,7 +653,7 @@ const NewHero: FC = () => {
                 </div>
               </section>
             </>
-            <section className="bg-black py-20 px-4">
+            <section className="bg-black text-white py-20 px-4">
               <h2 className="text-3xl font-bold text-center mb-4 ahsing">
                 More freedom
               </h2>
@@ -735,7 +735,7 @@ const NewHero: FC = () => {
               </div>
             </section>
           </>
-          <section className="py-20 bg-black px-4">
+          <section className="py-20 bg-black text-white px-4">
             <h2 className="text-3xl font-bold text-center mb-4 ahsing">
               Contact us
             </h2>
