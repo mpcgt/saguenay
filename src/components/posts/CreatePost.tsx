@@ -203,7 +203,7 @@ const CreatePost = () => {
   return (
     <>
       <Navigation />
-      <div className="bg-black">
+      <div className="bg-black text-white">
         <div className="min-h-screen pt-10 mx-auto flex flex-col items-center mt-16">
           <h1 className="text-3xl mb-5 font-bold">{t("createPost")}</h1>
 

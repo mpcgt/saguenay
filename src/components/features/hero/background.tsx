@@ -92,7 +92,7 @@ export const BackgroundHero = () => {
             }}
             className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 transition-colors hover:bg-gray-950/50"
           >
-            <Link to="https://github.com/mpcgt/saguenay" target="_blank" className="text-white hover:text-white">
+            <Link to="https://github.com/mpcgt/saguenay" target="_blank" aria-label="Repository GitHub" className="text-white hover:text-white">
               GitHub
             </Link>
             <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />

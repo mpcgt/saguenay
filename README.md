@@ -8,7 +8,7 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 
 **English** · [Français](./src/locales/fr/README.md) · [Español](./src/locales/es/README.md) · [Official Site](https://saguenay.vercel.app/) · [Help (Beta)](https://help.saguenay.vercel.app) · [Code of Conduct](./CODE_OF_CONDUCT.md) · [License](./LICENSE.md) 
 
-**Share Saguenay with your family and friends!**
+**Share Saguenay with your family and friends!**<br /><br />
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/sharer/sharer.php?u=https://saguenay.vercel.app/) [![X](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white)](https://x.com/intent/tweet?url=https://saguenay.vercel.app/&text=Try%20Saguenay,%20the%20open-source%20social%20network,%20free%20of%20ads%20and%20weird%20trackers.%20%F0%9F%98%8E) [![Pinterest](https://img.shields.io/badge/Pinterest-%23E60023.svg?style=for-the-badge&logo=Pinterest&logoColor=white)](https://pinterest.com/pin/create/button/?url=https://saguenay.vercel.app/&media=&description=Try%20Saguenay,%20the%20open-source%20social%20network,%20free%20of%20ads%20and%20weird%20trackers.%20%F0%9F%98%8E) [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/shareArticle?mini=true&url=https://saguenay.vercel.app/) [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:?&subject=Try%20Saguenay,%20the%20open-source%20social%20network,%20free%20of%20ads%20and%20weird%20trackers.%20%F0%9F%98%8E&cc=&bcc=&body=https://saguenay.vercel.app/%0ATry%20Saguenay,%20the%20open-source%20social%20network,%20free%20of%20ads%20and%20weird%20trackers.%20%F0%9F%98%8E)
 </div>
 
@@ -38,7 +38,7 @@ The **Saguenay social network** is a **dynamic platform** that enables users to 
 ## 💻 **Technologies used**
 * **Front-end:** [React](https://react.dev), [TypeScript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindui.com/)
 * **Back-end:** [Node.js](https://nodejs.org) & [Vite](https://vite.dev/)
-* **Database:** [Supabase](https://supabase.com/)
+* **Database:** [Supabase](https://supabase.com/) <i>with PostgreSQL</i>
 * **Hosting:** [Vercel](https://vercel.com)
 * **AI:** [MistralAI](https://mistral.ai/)
 

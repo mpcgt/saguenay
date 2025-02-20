@@ -27,19 +27,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 const { data: { user }, error } = await supabase.auth.getUser();
 
                 if (error) {
-                    console.error("Error fetching current user:", error.message);
                     setUser(null);
                     setLoading(false);
                     return;
                 }
-
                 setUser(user);
                 setLoading(false);
-            } catch (error) {
-                console.error("Error fetching current user:", error);
+            } catch {
                 setUser(null);
                 setLoading(false);
-            }
+            }            
         }
 
         checkUser();
@@ -79,9 +76,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       </div>;
     }
 
-    // Autorisez l'accès aux routes publiques même si l'utilisateur n'est pas connecté
-    if (!user && !publicRoutes.includes(location.pathname) && ['/discovery', '/profile'].includes(location.pathname)) {
-        return <Navigate to="/profile" replace />;
+    if (!user && !publicRoutes.includes(location.pathname) && ['/discovery', '/login'].includes(location.pathname)) {
+        return <Navigate to="/login" replace />;
     }
 
     return (
