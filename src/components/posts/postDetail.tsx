@@ -129,7 +129,7 @@ const PostDetail = () => {
                 ) : (
                   <span>
                     Username not defined,{" "}
-                    <a href="/profile">log in to view user</a>
+                    <a href="/login">log in to view user</a>
                   </span>
                 )}
               </p>

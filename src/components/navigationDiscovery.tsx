@@ -35,7 +35,6 @@ export default function Navigation() {
       const { data: sessionData, error: sessionError } =
         await supabase.auth.getSession();
       if (sessionError || !sessionData.session) {
-        console.log("No active session or error fetching session");
         setUser(null);
         return;
       }
@@ -290,11 +289,11 @@ export default function Navigation() {
                           >
                             <LogOut className="mr-3 h-5 w-5 text-red-500 hover:text-red-500" />
                             <Link
-                              to="#"
+                              to="/login"
                               className="text-red-500 hover:text-red-500"
                               onClick={async () => {
                                 await signOut();
-                                navigate("/profile");
+                                navigate("/login");
                               }}
                             >
                               {t("logout")}

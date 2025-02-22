@@ -14,7 +14,7 @@ export default function Saved() {
       await supabase.auth.getSession();
 
     if (sessionError || !sessionData?.session) {
-      navigate("/profile");
+      navigate("/login");
       return;
     }
 
@@ -24,7 +24,7 @@ export default function Saved() {
         "Erreur lors de la récupération de l'utilisateur:",
         userError
       );
-      navigate("/profile");
+      navigate("/login");
     } else {
       setUser(userData.user);
     }

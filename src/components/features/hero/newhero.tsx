@@ -163,7 +163,7 @@ const NewHero: FC = () => {
                         {t("language")}
                       </p>
                       <div style={{ display: "flex", gap: "10px", backgroundColor: "black" }}>
-                        <button onClick={() => handleChangeLanguage("fr")}>
+                        <button aria-label="Français" onClick={() => handleChangeLanguage("fr")}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"
@@ -191,7 +191,7 @@ const NewHero: FC = () => {
                             ></path>
                           </svg>
                         </button>
-                        <button onClick={() => handleChangeLanguage("en")}>
+                        <button aria-label="English" onClick={() => handleChangeLanguage("en")}>
                           <div style={{ display: "flex", gap: "10px" }}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -403,7 +403,7 @@ const NewHero: FC = () => {
                             </svg>
                           </div>
                         </button>
-                        <button onClick={() => handleChangeLanguage("es")}>
+                        <button aria-label="Español" onClick={() => handleChangeLanguage("es")}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="32"
@@ -805,7 +805,7 @@ const NewHero: FC = () => {
               </div>
 
               <div className="mt-3 space-x-2">
-                <Link to="https://github.com/mpcgt/saguenay" target="_blank">
+                <Link to="https://github.com/mpcgt/saguenay" target="_blank" aria-label="Repository GitHub">
                   <span className="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-white hover:text-white hover:bg-gray-900 focus:outline-none focus:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400">
                     <svg
                       className="shrink-0 size-3.5"

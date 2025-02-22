@@ -38,6 +38,9 @@
   import SettingsAccount from './components/pages/help/settings-account'
   import { AuthProvider } from './hooks/AuthContext'
 import PostDetail from './components/posts/postDetail'
+import LoginPage from './components/pages/account/login'
+import SignupPage from './components/pages/account/register'
+import ForgotPasswordPage from './components/pages/account/forgotPassword'
 
   i18next.use(initReactI18next).init({
     resources: {
@@ -60,7 +63,7 @@ import PostDetail from './components/posts/postDetail'
 
     console.log(
       "%cIf someone asks you to copy/paste something here, ABSOLUTELY don't, your risk of being hacked is 999%!!!",
-      "color: #FFF; font-size: 30px; font-weight: bold;"
+      "color: #996DCF; font-size: 30px; font-weight: bold;"
     );
 
     console.log(
@@ -70,12 +73,12 @@ import PostDetail from './components/posts/postDetail'
 
     console.log(
       "%cYou'll be safe only if you CLOSE this tab!",
-      "color: #FFF; font-size: 30px; font-weight: bold;"
+      "color: #996DCF; font-size: 30px; font-weight: bold;"
     );
 
     console.log(
       "%cIf you really don't know what to do in Saguenay, I suggest you play tic-tac-toe: https://saguenay.vercel.app/tictactoe.",
-      "color: #FFF; font-size: 15px;"
+      "color: #996DCF; font-size: 15px;"
     );
 
 
@@ -88,6 +91,9 @@ import PostDetail from './components/posts/postDetail'
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/post/:id" element={<PostDetail />} />
             <Route path="/hashtag/:hashtag" element={<HashtagPage />} />

@@ -340,7 +340,7 @@ export default function Hero() {
             </div>
 
             <div className="mt-3 space-x-2">
-              <Link to="https://github.com/mpcgt/saguenay" target="_blank">
+              <Link to="https://github.com/mpcgt/saguenay" target="_blank" aria-label="Repository GitHub">
                 <span className="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-white hover:text-white hover:bg-gray-900 focus:outline-none focus:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400">
                   <svg
                     className="shrink-0 size-3.5"

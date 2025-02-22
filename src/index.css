@@ -24,6 +24,7 @@
 
 @font-face {
   font-family: ahsing;
+  font-display: swap;
   src: url(../src/assets/fonts/Ahsing-Regular.otf);
 }
 

@@ -120,6 +120,7 @@ const LoginPage = () => {
               whileTap={{ scale: 0.98 }}
               onClick={signInWithGitHub}
               className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-zinc-800 text-white font-semibold hover:bg-zinc-700 hover:border-transparent transition-colors"
+              disabled
             >
               <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                 <path
@@ -128,7 +129,7 @@ const LoginPage = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              Continuer avec GitHub
+              Continuer avec GitHub (Bientôt disponible)
             </motion.button>
           </motion.div>
 
